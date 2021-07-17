@@ -1,0 +1,171 @@
+*{
+    margin: 0;
+}
+
+.container-primary{
+    background:-webkit-linear-gradient(top, rgb(16, 77, 124), rgb(162, 215, 231));  
+}
+
+.container-background img{
+    position: fixed;
+    z-index: 1;
+}
+
+.overlay-header{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000000; /*COLOR DE FONDO*/
+    z-index: 0;
+    opacity: .7;
+    z-index: 2;
+ }
+
+ .container-login-primary{
+    width: 100vw;
+    height: 100vh;
+    background-color: brown;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+ }
+
+ .container-login{
+    background-color: #FFFFFF;
+    border: #535353 solid 1px;
+    border-radius: 9px;
+    padding-top: 85px;
+    padding-bottom: 35px;
+    width: 440px;
+    height: 450px;
+    
+    position: relative;
+    bottom: 45px;
+    left: 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+ }
+
+ .container-logo{
+    background-color: #a01f83;
+    width: 360px;
+    height: auto;
+
+    position: relative;
+    top: 45px;
+    left: 0px;
+
+    z-index: 4;
+ }
+
+ .session-title{
+    color: #5e5e5e;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 20px;
+    z-index: 4;
+ }
+
+
+ .container-name, .container-mail, .container-password{
+    margin-bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.label-login-name, .label-login-mail, .label-login-password{
+    color: #5e5e5e;
+    padding-top: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all 0.5s;
+}
+
+.input-login{
+    border: none;
+    border-bottom: solid 1px #535353;
+    font-size: 18px;    
+    outline: 0 none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: -20px;
+    width: 330px;
+    transition-duration: 0.3s;
+}
+
+.input-login:focus{
+    border-color: #a01f83;
+    box-shadow: #a01f83 0px 1px;
+    outline: 0 none;/*Quita el borde del formulario cuando damos clic*/
+}
+
+.iconUser, .iconMail, .iconPass{
+    font-size: 23px;
+    color: #5e5e5e;
+    position: relative;
+    left: 310px;
+    bottom: 12px;
+}
+
+
+
+
+
+.container-name:focus-within .label-login-name{/*Damos click en el formulario y el label se anima*/
+    color: #a01f83; 
+}
+
+.container-mail:focus-within .label-login-mail{/*Damos click en el formulario y el label se anima*/
+    color: #a01f83;   
+}
+
+.container-password:focus-within .label-login-password{/*Damos click en el formulario y el label se anima*/
+    color: #a01f83;   
+}
+
+
+
+
+
+.container-name:focus-within .iconUser{/*Damos click en el formulario y el label se anima*/
+    color: #a01f83;   
+}
+
+.container-mail:focus-within .iconMail{/*Damos click en el formulario y el label se anima*/
+    color: #a01f83;   
+}
+
+.container-password:focus-within .iconPass{/*Damos click en el formulario y el label se anima*/
+    color: #a01f83;   
+}
+
+.container-btn{
+    width: 100%;
+    margin-top: 50px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.btn-login{
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    width: 120px;
+    margin: auto;
+    height: 40px;
+    text-align: center;
+    background-color: #a01f83;
+    color: #fff;
+    font-size: 15px;
+    transition: all 0.5s;
+}
