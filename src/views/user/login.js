@@ -20,35 +20,13 @@ const Login = props => {
         password: ''
     });
 
-    // const handleInputChange = event => {
-    //     setData({
-    //         ...data,
-    //         [event.target.name] : event.target.value
-    //     })
-    // }
-    
-    // const handleSession = event => {
-    //     let history = props.history;
-    //     event.preventDefault();
-    //     props.loginAdmin({...data, history});
-    // }
-
-
-
-
-
-
     const{register, handleSubmit, formState: { errors }} = useForm()
 
     const onSubmit = (data, e) => {
-        e.target.reset()
-        console.log(data)
+        let history = props.history;
+        e.target.reset();
+        props.loginAdmin({...data, history});
     }
-
-
-
-
-
 
     return(
 
@@ -120,19 +98,19 @@ const Login = props => {
                         <div className="container-mail">
 
                             <label
-                                htmlFor="mail" 
+                                htmlFor="email" 
                                 className="label-login-mail"
                             >
-                                Correo
+                                Correo electrónico
                             </label>
 
                             <input
                                 type="text"
-                                name="mail"
+                                name="email"
                                 autoComplete="off"
                                 className="input-login"
 
-                                {...register("mail", {
+                                {...register("email", {
                                     required:{
                                         value: true,
                                         message: 'Campo Requerido'
@@ -201,7 +179,7 @@ const Login = props => {
                         </span>
 
                         <span className="">
-                            {errors.mail && errors.mail.message}
+                            {errors.email && errors.email.message}
                         </span>
 
                         <span className="">
@@ -211,7 +189,7 @@ const Login = props => {
 
 
                         <div className="container-btn">
-                            <button className="btn-login">Login</button>
+                            <button className="btn-login">LOGIN</button>
                         </div>
 
                     </form>
@@ -219,23 +197,6 @@ const Login = props => {
             </div>
         </div>
 
-
-
-
-
-
-        // <div>
-        //     <form onSubmit={handleSession}>
-        //         <p>Usuario:</p>
-        //         <input type="text" name="user" placeholder="Ingresar usuario" onChange={handleInputChange}/>
-        //         <p>Contraseña</p>
-        //         <input type="pass" name="password" placeholder="Ingresar contraseña" onChange={handleInputChange}/>
-        //         <input 
-        //             type="submit" 
-        //             value="Ingresar"
-        //         />
-        //     </form>
-        // </div>
     )
 }
 
