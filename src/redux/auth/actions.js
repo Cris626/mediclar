@@ -6,11 +6,12 @@ export const loginAdmin = user => {
     let history = user.history;
     let flag = false;
     let dataAuthentication = {
-        user: "admin",
-        pass: "admin123"
+        email: "admin@mediclar.com",
+        name: "mediclar",
+        password: "mediclar123"
     }
 
-    if(dataAuthentication.user === user.user && dataAuthentication.pass === user.password){
+    if(dataAuthentication.name === user.name && dataAuthentication.password === user.password && dataAuthentication.email === user.email){
         history.push('/mediclar/main')        
         flag = true;
         alert("Datos correctos");
