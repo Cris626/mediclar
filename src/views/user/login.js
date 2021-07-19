@@ -30,19 +30,19 @@ const Login = props => {
 
     return(
 
-        <div className="container-primary">
+        <div className="container-primary-login">
 
-            <div className="container-background">
+            <div className="container-background-login">
                 <img className="background-login" src={ backgroundLogin } alt="background"/>
             </div>
 
-            <div className="overlay-header"></div>
+            <div className="overlay-header-login"></div>
 
 
 
-            <div className="container-login-primary">
+            <div className="container-primary-login">
 
-                <div align="center" className="container-logo">
+                <div align="center" className="container-logo-login">
                     <img className="logo-login" src={ logoMediclar } alt="logo"/>
                 </div>
 

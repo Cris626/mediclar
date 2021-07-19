@@ -1,0 +1,528 @@
+*{
+    margin: 0;
+}
+
+.container-background img{
+    width: 100%;
+    height: 30vh;
+    position: fixed;
+    z-index: 1;
+}
+
+.overlay-header{
+    width: 100%;
+    height: 30.1%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000000; /*COLOR DE FONDO*/
+    z-index: 0;
+    opacity: .7;
+    z-index: 2;
+ }
+
+ .container-form-primary{
+    width: 100%;
+    height: 100vh;
+    background-color: #FFFFFF;
+    color: #424242;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+ }
+
+ .container-logo{
+    background-color: #a01f83;
+    border-radius: 9px;
+    width: 70%;
+    height: auto;
+
+    position: relative;
+    top: 125px;
+    left: 0px;
+
+    z-index: 4;
+ }
+
+ .titulo-numero-registro{
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    right: 25px;
+    top: 10px;
+}
+
+.numero-registro{
+   color: #FFFFFF;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 25px;
+   position: absolute;
+   right: 25px;
+   top: 30px;
+}
+
+.logo-login{
+    padding-top: 15px;
+}
+
+.titulo-logo-login{
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 15px;
+    
+}
+
+ .container-form{
+    background-color: #FFFFFF;
+    border: #c0c0c0 solid 1px;
+    border-radius: 9px;
+    margin-top: 100px;
+    padding-top: 85px;
+    padding-bottom: 35px;
+    width: 80%;
+    height: auto;
+
+    display: flex;
+    z-index: 3;
+ }
+
+.form{
+    width: 100%;
+}
+
+.container-block-primary{
+    width: 95%;
+    margin: auto;
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.container-block{
+    width: 100%;
+
+    display: flex;
+}
+
+ .container-1{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*Estilos label*/
+
+.label-form{
+    color: #5e5e5e;
+    padding-top: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all 0.5s;
+}
+
+
+/*Estilos Input*/
+
+.input-form-paciente{
+    border: none;
+    border: solid 1px #ADADAD;
+    border-radius: 5px;
+    font-size: 18px;    
+    outline: 0 none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    width: 95%;
+    transition-duration: 0.3s;
+}
+
+.input-form-nacimiento, .input-form-Passport, .input-form-genero, .input-form-mail, .input-form-telefono, .input-form-resultado, .input-form-fecha, .input-form-hora{
+    border: none;
+    border: solid 1px #ADADAD;
+    border-radius: 5px;
+    font-size: 18px;    
+    outline: 0 none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    width: 90%;
+    transition-duration: 0.3s;
+}
+
+
+.input-form-paciente:focus, .input-form-nacimiento:focus, .input-form-Passport:focus, .input-form-genero:focus, .input-form-mail:focus, .input-form-telefono:focus, .input-form-resultado:focus, .input-form-fecha:focus, .input-form-hora:focus{
+    border-color: #a01f83;
+    outline: 0 none;/*Quita el borde del formulario cuando damos clic*/
+}
+
+
+
+
+.input-form-hotel, .input-form-habitacion{
+    border: none;
+    border: solid 1px #ADADAD;
+    border-radius: 5px;
+    font-size: 18px;    
+    outline: 0 none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    width: 98%;
+    transition-duration: 0.3s;
+}
+
+.input-form-hotel:focus, .input-form-habitacion:focus{
+    border-color: #a01f83;
+    outline: 0 none;/*Quita el borde del formulario cuando damos clic*/
+}
+
+::placeholder {
+    color: #d3d2d2;
+    font-size: 15px;
+}
+
+.option-selecciona option{
+    color: #d3d2d2;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+.container-1-1{
+    width: 100%;
+
+    display: flex;
+}
+
+
+.container-pasiente{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+.container-telefonos-primary{
+    width: 100%;
+    margin-top: 15px;
+
+    display: flex;
+
+}
+
+.container-codigo-area{
+    width: 90px;
+    margin-right: 10px;
+}
+
+.container-telefonos{
+    width: 77%;
+}
+
+
+
+
+
+.container-motivo-control-primary{
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.container-motivo-control{
+    margin-top: 20px;
+    width: 100%;
+
+    display: flex;
+}
+
+.container-motivo{
+    width: 100%;
+    margin-right: 40px;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.titulo-Control{
+    margin-bottom: 10px;
+}
+
+.container-control-primary{
+
+    margin-right: 30px;
+    width: 70%;
+}
+
+.container-control{
+    width: 100%;
+
+
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.label-control{
+    margin-left: 10px;
+}
+
+
+
+
+
+.container-fecha-hora-primary{
+    width: 100%;
+    margin-top: 15px;
+
+    display: flex;
+
+}
+
+.container-fecha-hora{
+    width: 50%;
+}
+
+
+
+
+
+.container-resultado-primary{
+    margin-top: 20px;
+    width: 95.5%;
+    height: auto;
+}
+
+table{
+    border-collapse: collapse;
+    border: #c0c0c0 solid 1px;
+}
+
+th{
+    border: #c0c0c0 solid 1px;
+    background-color: #a01f83;
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    padding: 5px;
+}
+
+th .titulo-linea{
+    border: none;
+}
+
+td{
+    border: #c0c0c0 solid 1px;
+    background-color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+
+.titulo-linea-c{
+    padding-left: 100px;
+    width: 70px;
+    border: none;
+}
+
+.container-titulo-resultado{
+    display: flex;
+}
+
+.titulo-linea-t{
+    padding-left: 30px;
+    width: 70px;
+    border: none;
+}
+
+.resultadoCRT-Negativo{
+    border: none;
+    margin-left: 20px;
+}
+
+.resultadoCRT-Positivo{
+    border: none;
+    margin-left: 90px;
+}
+
+.resultadoTitulo{
+    border: none;
+}
+
+.resultadoCRT{
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+.container-controInterno-primary{
+    margin-top: 20px;
+    width: 95.5%;
+    height: auto;
+
+    display: flex;
+}
+
+.container-sangre{
+    width: 50%;
+    height: auto;
+}
+
+.container-sangre-radio{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-sangre-texto{
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.label-sangre{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10px;
+}
+
+
+
+.container-control-sangre{
+    width: 50%;
+    height: auto;
+}
+
+.container-control-sangre{
+    font-family: Arial, Helvetica, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.control-titulo{
+    color: #a01f83;
+    position: relative;
+    top: 0px
+}
+
+.control-firma{
+    padding-top: 10px;
+    position: relative;
+    top: 100px;
+    border-top: #c0c0c0 solid 1px;
+}
+
+
+
+
+
+
+
+
+
+
+.container-2{
+
+    display: flex;
+    width: 35%;
+    flex-direction: column;
+}
+
+
+
+
+
+.container-firma{
+
+    margin-top: 20px;
+    padding-bottom: 38px;
+    border-bottom: solid #ADADAD 2px;
+}
+
+.firma{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.container-muestra-resultado{
+    margin-top: 20px;
+}
+
+.muestra-resultado{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+    margin-bottom: 35px;
+}
+
+.container-primary-img{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.container-img{
+    border: solid #ADADAD 1px;
+    width: 250px;
+    height: 600px;
+}
+
+
+.container-btn{
+    width: 320px;
+    margin-left: 30px;
+    margin-top: 50px;
+}
+
+.btn-login{
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    width: 320px;
+    margin: auto;
+    height: 40px;
+    text-align: center;
+    background-color: #a01f83;
+    color: #fff;
+    font-size: 15px;
+    transition: all 0.5s;
+}
+
+.pie-pagina{
+    color: #FFFFFF;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #a01f83;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    height: auto;
+}

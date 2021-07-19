@@ -2,16 +2,17 @@
     margin: 0;
 }
 
-.container-primary{
+.container-primary-login{
     background:-webkit-linear-gradient(top, rgb(16, 77, 124), rgb(162, 215, 231));  
 }
 
-.container-background img{
+.container-background-login{
     position: fixed;
     z-index: 1;
 }
 
-.overlay-header{
+
+.overlay-header-login{
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -23,7 +24,7 @@
     z-index: 2;
  }
 
- .container-login-primary{
+ .container-primary-login{
     width: 100vw;
     height: 100vh;
     background-color: brown;
@@ -54,7 +55,7 @@
     z-index: 3;
  }
 
- .container-logo{
+ .container-logo-login{
     background-color: #a01f83;
     width: 360px;
     height: auto;
