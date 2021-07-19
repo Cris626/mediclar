@@ -12,6 +12,8 @@ import backgroundLogin from '../../img/background-login.jpg'
 import { connect } from 'react-redux';
 import { loginAdmin } from '../../redux/actions';
 
+import IntlMessages from '../../helpers/IntlMessages';
+
 import '../../styles/login.css';
 
 const Login = props => {
