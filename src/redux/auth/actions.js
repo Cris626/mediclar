@@ -1,5 +1,6 @@
 import {
-    LOGIN_ADMIN
+    LOGIN_ADMIN,
+    LOGIN_QR
 } from '../actions';
 
 export const loginAdmin = user => {
@@ -12,7 +13,7 @@ export const loginAdmin = user => {
     }
 
     if(dataAuthentication.name === user.name && dataAuthentication.password === user.password && dataAuthentication.email === user.email){
-        history.push('/mediclar/main')        
+        history.push('/mediclar/app/form-main')        
         flag = true;
         alert("Datos correctos");
     }else{
@@ -24,5 +25,14 @@ export const loginAdmin = user => {
     return {
         type: LOGIN_ADMIN,
         payload: {...user, flag}
+    }
+}
+
+export const loginQR = value => {
+    const {history} = value;
+    history.push('/mediclar/selected-lang');
+    return {
+        type: LOGIN_QR,
+        payload: value
     }
 }
