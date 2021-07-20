@@ -8,20 +8,22 @@ import {
 import { IntlProvider } from 'react-intl';
 import AppLocale from './lang';
 
-const ViewUser = React.lazy(()=> import('./views/user'));
+const ViewAdminLogin = React.lazy(()=> import('./views/user'));
 
 const ViewApp = React.lazy(()=> import('./views/app'));
 
-const App = (props) => {
-  let data = props;
+const ViewLogin = React.lazy(()=> import('./views/user'));
 
-  function authtoken(){
-    if(data.flag){
-      return true;
-    }else{
-      return false;
-    }
-  }
+const App = (props) => {
+  // let data = props;
+
+  // function authtoken(){
+  //   if(data.flag){
+  //     return true;
+  //   }else{
+  //     return false;
+  //   }
+  // }
 
   const { locale } = props;
   const currentAppLocale = AppLocale[locale];
@@ -37,12 +39,16 @@ const App = (props) => {
             <Router history>
               <Switch>
                 <Route
-                  path="/mediclar"
-                  render={props=> authtoken()?<ViewApp {...props} />:<ViewUser {...props}/>}
+                  path="/mediclar/admin"
+                  render={props=><ViewApp {...props}/>}
                 />
                 <Route
-                  path="/"
-                  render={props=> authtoken()?<ViewUser {...props} />:<ViewUser {...props} />}
+                  path="/mediclar"
+                  render={props=> <ViewAdminLogin {...props} />}
+                />
+                <Route
+                  path="/mediclar"
+                  render={props=> <ViewLogin {...props}/>}
                 />
               </Switch>
             </Router>

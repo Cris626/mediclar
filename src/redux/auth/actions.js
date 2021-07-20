@@ -12,7 +12,7 @@ export const loginAdmin = user => {
     }
 
     if(dataAuthentication.name === user.name && dataAuthentication.password === user.password && dataAuthentication.email === user.email){
-        history.push('/mediclar/main')        
+        history.push('/mediclar/admin/form-main')        
         flag = true;
         alert("Datos correctos");
     }else{

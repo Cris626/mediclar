@@ -16,7 +16,7 @@ import IntlMessages from '../../helpers/IntlMessages';
 
 import '../../styles/login.css';
 
-const Login = props => {
+const LoginAdmin = props => {
     const [data, setData] = useState({
         user: '',
         password: ''
@@ -68,7 +68,7 @@ const Login = props => {
                                 name="name"
                                 autoComplete="off"
                                 className="input-login"
-
+                                value="mediclar"
                                 {...register("name", {
                                     required:{
                                         value: true,
@@ -111,7 +111,7 @@ const Login = props => {
                                 name="email"
                                 autoComplete="off"
                                 className="input-login"
-
+                                value="admin@mediclar.com"
                                 {...register("email", {
                                     required:{
                                         value: true,
@@ -154,7 +154,7 @@ const Login = props => {
                                 name="password"
                                 autoComplete="off"
                                 className="input-login"
-
+                                value="mediclar123"
                                 {...register("password", {
                                     required:{
                                         value: true,
@@ -213,4 +213,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Login);
+)(LoginAdmin);

@@ -8,9 +8,9 @@ const App = (props) => {
     return(
         <div>
             <Switch>
-                <Redirect exact from={`${match.url}`} to={`${match.url}/main`} />
-                <Route
-                    path={`${match.url}/main`}
+                {/* <Redirect exact from={`${match.url}`} to={`${match.url}/main`} /> */}
+                <Route                
+                    path={`${match.url}/form-main`}
                     render={props=> <Main {...props}/>}
                 />
             </Switch>
