@@ -1,9 +1,10 @@
 /* SETTINGS */
 export const CHANGE_LOCALE = "CHANGE_LOCALE";
 
-/* LOGIN ADMIN */
+/* LOGIN */
 
 export const LOGIN_ADMIN = 'LOGIN_ADMIN';
+export const LOGIN_QR = 'LOGIN_QR';
 
 /* ALL */
 

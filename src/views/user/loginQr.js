@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import '../../styles/login.css';
 
-import logoMediclar from '../../img/logo.jpg'
-import backgroundLogin from '../../img/background-login.jpg'
+import logoMediclar from '../../img/logo.jpg';
+import backgroundLogin from '../../img/background-login.jpg';
+
+import { loginQR } from '../../redux/actions';
+import { connect } from 'react-redux';
 
 const Login = props => {
 
     const handleQR=()=>{
-        return console.log(props)
+        props.loginQR(props)
     }
 
     return(
@@ -31,4 +34,15 @@ const Login = props => {
     )
 }
 
-export default Login;
+const mapStateToProps = ({ }) => {
+    return {};
+}
+
+const mapDispatchToProps = dispatch => ({
+    loginQR: value => dispatch(loginQR(value))
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Login);

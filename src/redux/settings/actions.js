@@ -5,7 +5,7 @@ import {
 export const changeLocale = (locale) => {
     const {option, props} = locale;
     props.history.push('/mediclar/app/result-document')        
-    localStorage.setItem('currentLanguaje', locale);
+    localStorage.setItem('currentLanguaje', option);
     return{
         type: CHANGE_LOCALE,
         payload: option
