@@ -35,9 +35,6 @@ const SelectedLang = props => {
                     <button onClick={()=>handleChangeLang('en')}>
                         INGLES
                     </button>
-                    <label>
-                        <IntlMessages id="user.name" />
-                    </label>
                 </div>
             </div>
         </div>
