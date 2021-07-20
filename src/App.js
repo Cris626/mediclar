@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
   Route,
-  Switch
+  Switch,
+  Redirect
 } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 import AppLocale from './lang';
@@ -38,6 +39,8 @@ const App = (props) => {
           <Suspense>
             <Router history>
               <Switch>
+                {/* <Redirect exact from={`/`} to={`mediclar/login`} /> */}
+                <Redirect exact from={`/`} to={`mediclar/admin-login`} />
                 <Route
                   path="/mediclar/app"
                   render={props=><ViewApp {...props}/>}
