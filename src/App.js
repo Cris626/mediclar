@@ -39,7 +39,7 @@ const App = (props) => {
             <Router history>
               <Switch>
                 <Route
-                  path="/mediclar/admin"
+                  path="/mediclar/app"
                   render={props=><ViewApp {...props}/>}
                 />
                 <Route

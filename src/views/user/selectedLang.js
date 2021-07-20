@@ -4,11 +4,17 @@ import '../../styles/login.css';
 import logoMediclar from '../../img/logo.jpg';
 import backgroundLogin from '../../img/background-login.jpg'
 
+import { changeLocale } from '../../redux/actions';
+import { connect } from 'react-redux';
+
+import IntlMessages from '../../helpers/IntlMessages';
+
 const SelectedLang = props => {
 
     const handleChangeLang=(option)=>{
-        return console.log(option)
+        props.changeLocale({option, props});
     }
+
 
     return(
         <div className="container-primary">
@@ -29,10 +35,25 @@ const SelectedLang = props => {
                     <button onClick={()=>handleChangeLang('en')}>
                         INGLES
                     </button>
+                    <label>
+                        <IntlMessages id="user.name" />
+                    </label>
                 </div>
             </div>
         </div>
     )
 }
 
-export default SelectedLang;
+const mapStateToProps = ({ settings }) => {
+    const { locale } = settings;
+    return {locale};
+}
+
+const mapDispatchToProps = dispatch => ({
+    changeLocale: value => dispatch(changeLocale(value))
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(SelectedLang);
