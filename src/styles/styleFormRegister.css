@@ -1,0 +1,596 @@
+*{
+    margin: 0;
+}
+
+
+
+
+.container-register-primary img{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.container-register-background img{
+    width: 100%;
+    height: 30vh;
+    position: fixed;
+    z-index: 1;
+}
+
+.overlay-register-header{
+    width: 100%;
+    height: 30.1%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000000; /*COLOR DE FONDO*/
+    z-index: 0;
+    opacity: .7;
+    z-index: 2;
+ }
+
+
+
+ .head-icon{
+    position: fixed;
+    width: 100%;
+
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 7;
+ }
+
+ .icon-style{
+     margin-right: 10px;
+     font-size: 20px;
+ }
+
+ .icon-button{
+     font-size: 30px;
+ }
+
+ .icon-web, .icon-mail, .icon-phone{
+     display: flex;
+ }
+
+ .icon-link a{
+     text-decoration: none;
+     color: white;
+ }
+
+
+
+
+ .container-form-register-primary{
+    width: 100%;
+    height: 100vh;
+    background-color: #FFFFFF;
+    color: #424242;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+ }
+
+
+
+
+
+
+
+
+ .container-logo-primary{
+    background-color: #a01f83;
+    border-radius: 9px;
+    width: 65%;
+    height: auto;
+
+    position: relative;
+    top: 125px;
+    left: 0px;
+
+    z-index: 4;
+ }
+
+ .title-number-register{
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    right: 25px;
+    top: 10px;
+}
+
+.number-register{
+   color: #FFFFFF;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 25px;
+   position: absolute;
+   right: 25px;
+   top: 30px;
+}
+
+.container-logo-register{
+    width: 150px;
+}
+
+.logo-login{
+    padding-top: 15px;
+}
+
+.title-logo-login{
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 15px;
+    
+}
+
+
+
+
+
+
+
+
+
+ .container-form-register{
+    background-color: #FFFFFF;
+    border: #c0c0c0 solid 1px;
+    border-radius: 9px;
+    margin-top: 60px;
+    padding-top: 85px;
+    padding-bottom: 35px;
+    width: 80%;
+    height: auto;
+ 
+    display: flex;
+    z-index: 3;
+ }
+
+.form-register{
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+.container-block-register-primary{
+    width: 100%;
+}
+
+.container-block-register{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+ .container-register{
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-motive-proof-register{
+    margin-top: 20px;
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.container-test-type-register{
+    margin-top: 50px;
+    margin-left: 30px;
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+/*Estilos label*/
+
+.label-form-register{
+    color: #5e5e5e;
+    padding-top: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all 0.5s;
+}
+
+.required-label{
+    color: #d313a9;
+    margin-left: 5px;
+}
+
+
+
+
+
+
+.input-register-name, 
+.input-register-surname,
+.input-register-second-surname,
+.input-register-birth, 
+.input-register-curp,
+.input-register-gender,
+.input-register-passport,
+.input-register-phone,
+.input-register-email,
+.input-register-confirm-email,
+.input-register-confirm-name-passer,
+.input-register-confirm-date
+{
+    border: none;
+    border: solid 1px #ADADAD;
+    border-radius: 5px;
+    font-size: 18px;    
+    outline: 0 none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    width: 90%;
+    transition-duration: 0.3s;
+}
+
+.input-register-space-privacy{
+    border: none;
+    border: solid 1px #ADADAD;
+    border-radius: 5px;
+    font-size: 18px;    
+    outline: 0 none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 98%;
+    height: 80px;
+    transition-duration: 0.3s; 
+}
+
+
+/*Estilos Input focus*/
+.input-register-name:focus,
+.input-register-surname:focus,
+.input-register-second-surname:focus,    
+.input-register-birth:focus, 
+.input-register-curp:focus,
+.input-register-passport:focus,
+.input-register-phone:focus,
+.input-register-email:focus,
+.input-register-confirm-email:focus,
+.input-register-confirm-name-passer:focus,
+.input-register-confirm-date:focus
+{
+    border-color: #a01f83;
+    outline: 0 none;/*Quita el borde del formulario cuando damos clic*/
+}
+
+::placeholder {
+    color: #d3d2d2;
+    font-size: 15px;
+}
+
+
+
+
+
+.container-phone-register-primary{
+    width: 100%;
+    margin-top: 15px;
+
+    display: flex;
+
+}
+
+.container-register-code{
+    width: 90px;
+    margin-right: 10px;
+}
+
+.container-register-phone{
+    margin-top: 18px;
+    width: 77%;
+}
+
+
+
+
+
+
+
+.title-motive-proof{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container-motive{
+    width: 90%;
+    margin-top: 10px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.label-control{
+    margin-left: 10px;
+}
+
+
+
+
+.line-bottom{
+    border-bottom: solid 1px #b1b0b0;
+    margin: auto;
+    margin-top: 20px;
+    width: 97%;
+}
+
+
+
+
+
+.container-block-register-privacy-primari{
+    margin-top: 50px;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.container-block-register-privacy{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.title-privacy{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #a01f83;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.block-privacy-first{
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%;
+}
+
+.block-privacy-second{
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%;
+}
+
+.paragraph-privacy-title{
+    color: #AF0087;
+    margin-bottom: 5px;
+}
+
+.paragraph-privacy{
+    margin-bottom: 20px;
+}
+
+.paragraph-container{
+    display: flex;
+}
+
+.paragraph-notice-title{
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.container-form-register-notice{
+    margin-top: 25px;
+    display: flex;
+}
+
+
+
+
+.container-btn{
+    width: 100%;
+    margin-top: 50px;
+
+    text-align: center;
+}
+
+.btn-login-cancel{
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    width: 220px;
+    margin-right: 10px;
+    height: 40px;
+    text-align: center;
+    background-color: #686868;
+    color: #fff;
+    font-size: 15px;
+}
+
+.btn-login-accept{
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    width: 220px;
+    margin-left: 10px;
+    height: 40px;
+    text-align: center;
+    background-color: #a01f83;
+    color: #fff;
+    font-size: 15px;
+}
+
+.error-message{
+    font-size: 12px;
+    color: #7c1e1e;
+    margin-top: 5px;
+}
+
+.footer{
+    color: #FFFFFF;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #a01f83;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+@media screen and (max-width: 1000px){
+    .container-block-register{
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input-register-name, 
+    .input-register-surname,
+    .input-register-second-surname,
+    .input-register-birth, 
+    .input-register-curp,
+    .input-register-gender,
+    .input-register-passport,
+    .input-register-email,
+    .input-register-confirm-email,
+    .input-register-confirm-name-passer,
+    .input-register-confirm-date
+    {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-top: 10px;
+        margin-left: 20px;
+        width: 90%;
+        transition-duration: 0.3s;
+    }
+
+    .input-register-phone{
+        width: 97%;
+    }
+
+    .label-form-register{
+        margin-left: 20px;
+    }
+
+    .container-register{
+        width: 100%;
+    }
+
+    .container-phone-register-primary{
+        margin-left: 20px;
+    }
+
+    .container-register-phone{
+        padding-top: 18px;
+    }
+
+    .container-motive-proof-register{
+        margin-left: 20px;
+        width: 100%;
+    }
+
+    .container-test-type-register{
+        width: 100%;
+    }
+
+    .container-form-register-notice{
+        width: 100%;
+    }
+
+    .notice-input-name{
+        width: 90%;
+    }
+
+    .notice-input-date{
+        width: 90%;
+    }
+    
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 845px){
+
+    .input-register-phone{
+        width: 94%;
+    }
+
+
+    .container-block-register-privacy{
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .block-privacy-first, .block-privacy-second{
+        width: 95%;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    
+}
+
+
+
+@media screen and (max-width: 730px){
+
+    .input-register-phone{
+        width: 90%;
+    }
+
+    .container-form-register-notice{
+        width: 90%;
+    }
+    
+}
+
+@media screen and (max-width: 657px){
+
+    .input-register-phone{
+        width: 85%;
+    }
+
+    .container-form-register-notice{
+        width: 98%;
+    }
+}
