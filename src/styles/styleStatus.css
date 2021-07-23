@@ -61,6 +61,24 @@
      display: flex;
  }
 
+ .icon-button-search{
+    color: white;
+    font-size: 20px;
+ }
+
+ .button-search{
+    width: 50px;
+    height: 40px;
+    border: none;
+    background-color: #a01f83;
+    border-radius: 50px;
+    cursor: pointer;
+
+    position: relative;
+    top: 40px;
+    left: 0px;
+ }
+
 
 
 
@@ -132,7 +150,7 @@
     margin-top: 60px;
     padding-top: 85px;
     padding-bottom: 35px;
-    width: 80%;
+    width: 90%;
     height: auto;
  
     display: flex;
@@ -150,21 +168,62 @@
 
 
 .container-block-search-primary{
-    width: 100%;
+    width: 98%; 
+    display: flex;
 }
 
-.container-block-search{
+.container-block-search-status{
     width: 100%;
+    margin-right: 20px;
+    margin-left: 20px;
 
     display: flex;
     justify-content: center;
 }
 
+.container-block-search-date-primary{
+    width: 600px;
+    margin-right: 0px;
+    display: flex;
+}
+
+.container-block-search-date{
+    width: 350px;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+.container-search-date{
+
+    width: 27%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-search-date1{
+ 
+    margin-left: 5px;
+    margin-top: 33px;
+    width: 27%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
  .container-search{
+ 
     width: 32%;
     display: flex;
     flex-direction: column;
 }
+
 
 .container-motive-proof-register{
     margin-top: 20px;
@@ -209,7 +268,10 @@
 
 
 
-.input-register-status
+.select-status-status,
+.select-status-city,
+.input-status-business,
+.input-status-direction
 {
     border: none;
     border: solid 1px #ADADAD;
@@ -219,7 +281,23 @@
     padding-top: 5px;
     padding-bottom: 5px;
     margin-top: 10px;
-    width: 90%;
+    width: 95%;
+    transition-duration: 0.3s;
+}
+
+.select-dateOf-day,
+.select-dateOf-month,
+.select-dateOf-year
+{
+    border: none;
+    border: solid 1px #ADADAD;
+    border-radius: 5px;
+    font-size: 18px;    
+    outline: 0 none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    width: 100%;
     transition-duration: 0.3s;
 }
 

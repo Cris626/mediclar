@@ -7,6 +7,7 @@ import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 // import { faInstagram } from '@fortawesome/free-solid-svg-icons'
 import { faPhoneSquareAlt } from '@fortawesome/free-solid-svg-icons'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 import logoMediclarForm from '../../../img/logoForm.jpg'
 import backgroundForm from '../../../img/background-form.jpg'
@@ -71,13 +72,9 @@ const Form = () => {
                     <form className="form-status">
 
 
-
-
-
-
                         <div className="container-block-search-primary">
 
-                            <div className="container-block-search">
+                            <div className="container-block-search-status">
 
                                 <div className="container-search">
                                     <label
@@ -89,7 +86,7 @@ const Form = () => {
 
                                     <select
                                         name="status"
-                                        className="input-register-status"
+                                        className="select-status-status"
                                     >
                                         <option value="">Selection..</option>
                                         <option value="1">1</option>
@@ -98,7 +95,194 @@ const Form = () => {
                                     </select>
                                 </div>
 
+                                
+                                <div className="container-search">
+                                    <label
+                                        htmlFor="city" 
+                                        className="label-form-search"
+                                    >
+                                        Ciudad
+                                    </label>
+
+                                    <select
+                                        name="city"
+                                        className="select-status-city"
+                                    >
+                                        <option value="">Selection..</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+
+                                    </select>
+                                </div>
+
+                                <div className="container-search">
+                                    <label
+                                        htmlFor="business" 
+                                        className="label-form-search"
+                                    >
+                                        Ciudad
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        name="business"
+                                        autoComplete="off"
+                                        className="input-status-business"
+                                        placeholder="Agregar..."
+
+                                    />
+                                </div>
+
+                                <div className="container-search">
+                                    <label
+                                        htmlFor="direction" 
+                                        className="label-form-search"
+                                    >
+                                        Dirección
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        name="direction"
+                                        autoComplete="off"
+                                        className="input-status-direction"
+                                        placeholder="Agregar..."
+
+                                    />
+                                </div>
+
                             </div>
+
+
+                            
+
+
+
+
+
+                            <div className="container-block-search-date-primary">
+
+                                <div className="container-block-search-date">
+
+                                    <div className="container-search-date">
+                                        <label
+                                            htmlFor="dateOf" 
+                                            className="label-form-search"
+                                        >
+                                            Fecha de
+                                        </label>
+
+                                        <select
+                                            name="dateOf"
+                                            className="select-dateOf-day"
+                                        >
+                                            <option value="">00</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+
+                                        </select>
+                                    </div>
+
+                                    
+                                    <div className="container-search-date1">
+
+                                        <select
+                                            name="dateOf"
+                                            className="select-dateOf-month"
+                                        >
+                                            <option value="">00</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+
+                                        </select>
+                                    </div>
+
+                                    <div className="container-search-date1">
+
+                                        <select
+                                            name="dateOf"
+                                            className="select-dateOf-year"
+                                        >
+                                            <option value="">0000</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+
+
+
+
+
+                            
+
+                                <div className="container-block-search-date">
+
+                                    <div className="container-search-date">
+                                        <label
+                                            htmlFor="dateOf" 
+                                            className="label-form-search"
+                                        >
+                                            A
+                                        </label>
+
+                                        <select
+                                            name="dateOf"
+                                            className="select-dateOf-day"
+                                        >
+                                            <option value="">00</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+
+                                        </select>
+                                    </div>
+
+                                    
+                                    <div className="container-search-date1">
+
+                                        <select
+                                            name="dateOf"
+                                            className="select-dateOf-month"
+                                        >
+                                            <option value="">00</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+
+                                        </select>
+                                    </div>
+
+                                    <div className="container-search-date1">
+
+                                        <select
+                                            name="dateOf"
+                                            className="select-dateOf-year"
+                                        >
+                                            <option value="">0000</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <button className="button-search">
+                                    <FontAwesomeIcon className="icon-button-search" icon={ faSearch }/>
+                                </button>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
                             
                         </div>
 
