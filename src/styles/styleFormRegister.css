@@ -43,7 +43,7 @@
 
     display: flex;
     justify-content: space-evenly;
-    z-index: 7;
+    z-index: 3;
  }
 
  .icon-style{
@@ -59,10 +59,7 @@
      display: flex;
  }
 
- .icon-link a{
-     text-decoration: none;
-     color: white;
- }
+
 
 
 
@@ -540,6 +537,11 @@
     .notice-input-date{
         width: 90%;
     }
+
+    .icon-web, .icon-mail, .icon-phone{
+        display: none;
+    }
+   
     
 }
 
