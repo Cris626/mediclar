@@ -40,7 +40,8 @@ const App = (props) => {
             <Router history>
               <Switch>
                 {/* <Redirect exact from={`/`} to={`mediclar/login`} /> */}
-                <Redirect exact from={`/`} to={`mediclar/admin-login`} />
+                <Redirect exact from={`/`} to={`mediclar/generate-qr`} />
+                {/* <Redirect exact from={`/`} to={`mediclar/admin-login`} /> */}
                 <Route
                   path="/mediclar/app"
                   render={props=><ViewApp {...props}/>}

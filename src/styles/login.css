@@ -54,6 +54,34 @@
     z-index: 3;
  }
 
+ .container-generate-qr{
+    background-color: #FFFFFF;
+    border: #535353 solid 1px;
+    border-radius: 9px;
+    padding-top: 115px;
+    padding-bottom: 35px;
+    width: 440px;
+    height: 450px;
+
+    position: relative;
+    bottom: 45px;
+    left: 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+ }
+
+ .input-register-select{
+    width: 250px;
+    transition-duration: 0.3s;
+    font-family: Helvetica, sans-serif;
+    font-size: 18px;  
+    text-align: left;  
+    margin-bottom: 35px;
+ }
+
  .container-logo{
     background-color: #a01f83;
     width: 360px;
@@ -74,6 +102,29 @@
     z-index: 4;
  }
 
+ .session-label{
+    color: #000000;
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+    padding-bottom: 15px;
+ }
+
+ .session-label-primary{
+    color: #000000;
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+    padding-bottom: 15px;
+    padding-top: 0px;
+ }
+
+ .container-name-generate-qr{
+    margin-bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+ }
 
  .container-name, .container-mail, .container-password{
     margin-bottom: 30px;
