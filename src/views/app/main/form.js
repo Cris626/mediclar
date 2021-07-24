@@ -8,6 +8,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 // import { faInstagram } from '@fortawesome/free-solid-svg-icons'
 import { faPhoneSquareAlt } from '@fortawesome/free-solid-svg-icons'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faPrint } from '@fortawesome/free-solid-svg-icons'
 
 import logoMediclarForm from '../../../img/logoForm.jpg'
 import backgroundForm from '../../../img/background-form.jpg'
@@ -39,7 +40,7 @@ const Form = () => {
                 </div>
 
                 <div className="icon-mail">
-                    <FontAwesomeIcon className="icon-style" icon={ ['fab','instagram'] }/>
+                    {/* <FontAwesomeIcon className="icon-style" icon={ ['fab','instagram'] }/> */}
                     <p className="titleIcon">mediclar_lab</p>
                 </div>
 
@@ -271,34 +272,90 @@ const Form = () => {
                                     <FontAwesomeIcon className="icon-button-search" icon={ faSearch }/>
                                 </button>
                             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-                            
+   
                         </div>
-
-
-
-
 
                     </form>
 
+                    <table className="tableStatus">
+                       <thead>
+                            <tr>
+                                <th className="thStatus">Folio</th>
+                                <th className="thStatus">Origen</th>
+                                <th className="thStatus">Fecha</th>
+                                <th className="thStatus">Hora</th>
+                                <th className="thStatus">Nombre(s)</th>
+                                <th className="thStatus">Apellido Paterno</th>
+                                <th className="thStatus">Apellido Materno</th>
+                                <th className="thStatus">Fecha de Nacimiento</th>
+                                <th className="thStatus">Genero</th>
+                                <th className="thStatus">Pasaporte</th>
+                                <th className="thStatus">Mail</th>
+                                
+                                    <th className="thStatus">Enviar</th>
+                                    <th className="thStatus">WhatsApp</th>
+                                    <th className="thStatus">Enviar</th>
+                                    <th className="thStatus">SMS</th>
+                                    <th className="thStatus">Enviar</th>
+
+                                <th className="thStatus">PDF</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td className="tdStatus">00001</td>
+                                <td className="tdStatus">Guadalajara</td>
+                                <td className="tdStatus">15/JUL/2021</td>
+                                <td className="tdStatus">11:00</td>
+                                <td className="tdStatus">Flavio</td>
+                                <td className="tdStatus">Torres</td>
+                                <td className="tdStatus">González</td>
+                                <td className="tdStatus">19/DIC/1984 </td>
+                                <td className="tdStatus">Masculino</td>
+                                <td className="tdStatus">GP938903</td>
+                                <td className="tdStatus">flavio.tg@mediclarlab.com</td>
+                                <td className="tdStatus">
+                                    <input 
+                                        type="radio"
+                                        name="send"
+                                        value="imail"
+                                    />
+                                </td>
+                                <td className="tdStatus">+52 33 1551 1563</td>
+                                <td className="tdStatus">
+                                    <input 
+                                        type="radio"
+                                        name="send"
+                                        value="phone"
+                                    />
+                                </td>
+                                <td className="tdStatus">+52 33 1551 1563</td>
+                                <td className="tdStatus">
+                                    <input 
+                                        type="radio"
+                                        name="send"
+                                        value="SMS"
+                                    />
+                                </td>
+                                <td className="tdStatus">
+                                    <button className="button-print">
+                                        <FontAwesomeIcon className="icon-button-print" icon={ faPrint }/>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                       
+
+                    </table>
+
                 </div>
 
 
+            </div>
                 <div className="footer">
                     <p>© 2021 Mediclar es una marca registrada de Barter Box SA de CV</p>
                 </div>
-            </div>
         </div>
     )
 }
