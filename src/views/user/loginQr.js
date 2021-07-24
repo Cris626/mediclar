@@ -10,7 +10,8 @@ import { connect } from 'react-redux';
 const Login = props => {
 
     const handleQR=()=>{
-        props.loginQR(props)
+        console.log(props)
+        // props.loginQR(props)
     }
 
     return(
@@ -34,8 +35,8 @@ const Login = props => {
     )
 }
 
-const mapStateToProps = ({ }) => {
-    return {};
+const mapStateToProps = ({ authUser }) => {
+    return {authUser};
 }
 
 const mapDispatchToProps = dispatch => ({

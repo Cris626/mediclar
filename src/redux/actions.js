@@ -5,6 +5,7 @@ export const CHANGE_LOCALE = "CHANGE_LOCALE";
 
 export const LOGIN_ADMIN = 'LOGIN_ADMIN';
 export const LOGIN_QR = 'LOGIN_QR';
+export const GENERATE_QR = 'GENERATE_QR';
 
 /* ALL */
 
