@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
     LOGIN_ADMIN,
     LOGIN_QR,
@@ -38,13 +39,23 @@ export const loginQR = value => {
     }
 }
 
+const getQrAsync = async (option, origin) => {
+    let resultQr = await axios.post('https://sleepy-turing.50-21-189-39.plesk.page/api/v1/locations/generate-qr',{
+        locationId: origin.value,
+        isHotel: option.value
+    }).then(result => result.data.data).catch(err=>err.response.status);
+    return resultQr;
+}
+
 export const generateQR = value => {
     const {history, option, origin} = value;
     if(option && origin){
+        let dataQr = getQrAsync(option, origin);
+        // const promise = await Promise.resolve(resultQr);
         history.push('/mediclar/login-qr');
         return{
             type: GENERATE_QR,
-            payload: value
+            payload: {dataQr}
         }
     }else{
         alert("**Seleccionar opciones**")

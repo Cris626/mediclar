@@ -13,10 +13,15 @@ const selectOption = [
     { label: "No / No", value: 0, key: 1 }
 ];
 
+// const selectOrigin = [
+//     { label: "Guadalajara", value: 0, key: 0 },
+//     { label: "Puerto Vallarta", value: 1, key: 1 },
+//     { label: "CDMX", value: 2, key: 2 }
+// ];
 const selectOrigin = [
-    { label: "Guadalajara", value:"Guadalajara", key: 0 },
-    { label: "Puerto Vallarta", value:"Puerto Vallarta", key: 1 },
-    { label: "CDMX", value:"CDMX", key: 3 }
+    { label: "Guadalajara", value: 1, key: 0 },
+    { label: "Puerto Vallarta", value: 1, key: 1 },
+    { label: "CDMX", value: 1, key: 2 }
 ];
 
 const GenerateQr = props => {
@@ -67,12 +72,11 @@ const GenerateQr = props => {
     )
 }
 
-const mapStateToProps = ({ }) => {
-    return {};
+const mapStateToProps = ({authUser }) => {
+    return {authUser};
 }
 
 const mapDispatchToProps = dispatch => ({
-    loginQR: value => dispatch(loginQR(value)),
     generateQR: value => dispatch(generateQR(value))
 })
 
