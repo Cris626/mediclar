@@ -5,21 +5,21 @@
 
 
 
-.container-register-primary img{
+.container-status-primary img{
     width: 100%;
 
     display: flex;
     justify-content: center;
 }
 
-.container-register-background img{
+.container-status-background img{
     width: 100%;
     height: 30vh;
     position: fixed;
     z-index: 1;
 }
 
-.overlay-register-header{
+.overlay-status-header{
     width: 100%;
     height: 30.1%;
     position: fixed;
@@ -30,6 +30,8 @@
     opacity: .7;
     z-index: 2;
  }
+
+
 
 
 
@@ -59,12 +61,42 @@
      display: flex;
  }
 
+ .icon-button-search{
+    color: white;
+    font-size: 20px;
+ }
+
+ .button-search{
+    width: 50px;
+    height: 40px;
+    border: none;
+    background-color: #a01f83;
+    border-radius: 50px;
+    cursor: pointer;
+
+    position: relative;
+    top: 40px;
+    left: 0px;
+ }
+
+.icon-button-print{
+    color: #707070;
+}
+
+.button-print{
+    border: none;
+    cursor: pointer;
+    background-color: white;
+}
 
 
 
 
 
- .container-form-register-primary{
+
+
+
+ .container-form-status-primary{
     width: 100%;
     height: 100vh;
     background-color: #FFFFFF;
@@ -76,6 +108,9 @@
  }
 
 
+ .form-status{
+    width: 100%;
+}
 
 
 
@@ -95,22 +130,7 @@
     z-index: 4;
  }
 
- .title-number-register{
-    color: #FFFFFF;
-    font-family: Arial, Helvetica, sans-serif;
-    position: absolute;
-    right: 25px;
-    top: 10px;
-}
 
-.number-register{
-   color: #FFFFFF;
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: 25px;
-   position: absolute;
-   right: 25px;
-   top: 30px;
-}
 
 .container-logo-register{
     width: 150px;
@@ -135,62 +155,72 @@
 
 
 
- .container-form-register{
+ .container-form-status{
     background-color: #FFFFFF;
     border: #c0c0c0 solid 1px;
     border-radius: 9px;
     margin-top: 60px;
     padding-top: 85px;
     padding-bottom: 35px;
-    width: 80%;
+    width: 90%;
     height: auto;
  
     display: flex;
+    flex-direction: column;
+    align-items: center;
     z-index: 3;
  }
 
-.form-register{
-    width: 100%;
+
+
+
+
+
+
+
+
+
+
+.container-block-search-primary{
+    width: 98%; 
+    display: flex;
 }
 
-
-
-
-
-
-
-
-
-
-.container-block-register-primary{
+.container-block-search-status{
     width: 100%;
-}
-
-.container-block-register{
-    width: 100%;
+    margin-right: 20px;
+    margin-left: 20px;
 
     display: flex;
     justify-content: center;
 }
 
- .container-register{
-    width: 32%;
+.container-block-search-date-primary{
+    width: 600px;
+    margin-right: 0px;
+    display: flex;
+}
+
+.container-block-search-date{
+    width: 350px;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+.container-search-date{
+
+    width: 27%;
     display: flex;
     flex-direction: column;
 }
 
-.container-motive-proof-register{
-    margin-top: 20px;
-    width: 32%;
-    display: flex;
-    flex-direction: column;
-}
-
-
-.container-test-type-register{
-    margin-top: 50px;
-    margin-left: 30px;
-    width: 32%;
+.container-search-date1{
+ 
+    margin-left: 5px;
+    margin-top: 33px;
+    width: 27%;
     display: flex;
     flex-direction: column;
 }
@@ -199,41 +229,33 @@
 
 
 
+
+
+ .container-search{
+ 
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+}
 
 
 
 
 /*Estilos label*/
 
-.label-form-register{
+.label-form-search{
     color: #5e5e5e;
     padding-top: 15px;
     font-family: Arial, Helvetica, sans-serif;
     transition: all 0.5s;
 }
 
-.required-label{
-    color: #d313a9;
-    margin-left: 5px;
-}
 
 
-
-
-
-
-.input-register-name, 
-.input-register-surname,
-.input-register-second-surname,
-.input-register-birth, 
-.input-register-curp,
-.input-register-gender,
-.input-register-passport,
-.input-register-phone,
-.input-register-email,
-.input-register-confirm-email,
-.input-register-confirm-name-passer,
-.input-register-confirm-date
+.select-status-status,
+.select-status-city,
+.input-status-business,
+.input-status-direction
 {
     border: none;
     border: solid 1px #ADADAD;
@@ -243,11 +265,14 @@
     padding-top: 5px;
     padding-bottom: 5px;
     margin-top: 10px;
-    width: 90%;
+    width: 95%;
     transition-duration: 0.3s;
 }
 
-.input-register-space-privacy{
+.select-dateOf-day,
+.select-dateOf-month,
+.select-dateOf-year
+{
     border: none;
     border: solid 1px #ADADAD;
     border-radius: 5px;
@@ -256,25 +281,21 @@
     padding-top: 5px;
     padding-bottom: 5px;
     margin-top: 10px;
-    margin-bottom: 15px;
-    width: 98%;
-    height: 80px;
-    transition-duration: 0.3s; 
+    width: 100%;
+    transition-duration: 0.3s;
 }
 
 
+
+
 /*Estilos Input focus*/
-.input-register-name:focus,
-.input-register-surname:focus,
-.input-register-second-surname:focus,    
-.input-register-birth:focus, 
-.input-register-curp:focus,
-.input-register-passport:focus,
-.input-register-phone:focus,
-.input-register-email:focus,
-.input-register-confirm-email:focus,
-.input-register-confirm-name-passer:focus,
-.input-register-confirm-date:focus
+.select-status-status:focus,
+.select-status-city:focus,
+.input-status-business:focus,    
+.input-status-direction:focus, 
+.select-dateOf-day:focus,
+.select-dateOf-month:focus,
+.select-dateOf-year:focus
 {
     border-color: #a01f83;
     outline: 0 none;/*Quita el borde del formulario cuando damos clic*/
@@ -289,127 +310,54 @@
 
 
 
-.container-phone-register-primary{
-    width: 100%;
-    margin-top: 15px;
-
-    display: flex;
-
-}
-
-.container-register-code{
-    width: 90px;
-    margin-right: 10px;
-}
-
-.container-register-phone{
-    margin-top: 18px;
-    width: 77%;
-}
 
 
 
-
-
-
-
-.title-motive-proof{
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.container-motive{
-    width: 90%;
-    margin-top: 10px;
-
-    font-family: Arial, Helvetica, sans-serif;
-    
-    display: flex;
-    justify-content: space-between;
-}
-
-.label-control{
-    margin-left: 10px;
-}
-
-
-
-
-.line-bottom{
-    border-bottom: solid 1px #b1b0b0;
-    margin: auto;
+.tableStatus{
+    padding: 15px;
     margin-top: 20px;
-    width: 97%;
+    border-collapse: collapse;
+    width: 98%;
 }
 
+.containerTh{
+    background-color: #F5F5F5;
+    color: #a01f83;
 
-
-
-
-.container-block-register-privacy-primari{
-    margin-top: 50px;
     width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    border: solid 1px #d1d1d1;
+    margin-top: 23px;
 }
 
-
-.container-block-register-privacy{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    
+.thStatus{
+    background-color: #F5F5F5;
+    color: #a01f83;
+    font-family: Arial, Helvetica, sans-serif;
+    border: solid 1px #d1d1d1;
+    margin-top: 23px;
 }
 
-.title-privacy{
+.tdStatus{
+    background-color: white;
+    color: #707070;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #a01f83;
-    color: #FFFFFF;
-    margin-bottom: 30px;
-
     text-align: center;
-    padding: 10px;
-    border-radius: 5px;
-    width: 250px;
+    border: solid 1px #d1d1d1;
 }
 
-.block-privacy-first{
-    padding-left: 40px;
-    padding-right: 40px;
-    width: 100%;
-}
 
-.block-privacy-second{
-    padding-left: 40px;
-    padding-right: 40px;
-    width: 100%;
-}
 
-.paragraph-privacy-title{
-    color: #AF0087;
-    margin-bottom: 5px;
-}
 
-.paragraph-privacy{
-    margin-bottom: 20px;
-}
 
-.paragraph-container{
-    display: flex;
-}
 
-.paragraph-notice-title{
-    margin-top: 20px;
-    font-weight: bold;
-    font-size: 18px;
-}
 
-.container-form-register-notice{
-    margin-top: 25px;
-    display: flex;
-}
+
+
+
+
+
+
+
 
 
 
@@ -447,11 +395,6 @@
     font-size: 15px;
 }
 
-.error-message{
-    font-size: 12px;
-    color: #7c1e1e;
-    margin-top: 5px;
-}
 
 .footer{
     color: #FFFFFF;
@@ -470,7 +413,7 @@
 
 
 @media screen and (max-width: 1000px){
-    .container-block-register{
+    .container-block-status{
         width: 100%;
 
         display: flex;
@@ -501,11 +444,11 @@
         width: 97%;
     }
 
-    .label-form-register{
+    .label-form-search{
         margin-left: 20px;
     }
 
-    .container-register{
+    .container-search{
         width: 100%;
     }
 
