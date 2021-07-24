@@ -1,6 +1,7 @@
 import {
     LOGIN_ADMIN,
-    LOGIN_QR
+    LOGIN_QR,
+    GENERATE_QR
 } from '../actions';
 
 export const loginAdmin = user => {
@@ -34,5 +35,22 @@ export const loginQR = value => {
     return {
         type: LOGIN_QR,
         payload: value
+    }
+}
+
+export const generateQR = value => {
+    const {history, option, origin} = value;
+    if(option && origin){
+        history.push('/mediclar/login-qr');
+        return{
+            type: GENERATE_QR,
+            payload: value
+        }
+    }else{
+        alert("**Seleccionar opciones**")
+        return{
+            type: GENERATE_QR,
+            payload: ""
+        }
     }
 }

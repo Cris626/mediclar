@@ -5,12 +5,12 @@ import Select from 'react-select';
 import logoMediclar from '../../img/logo.jpg';
 import backgroundLogin from '../../img/background-login.jpg';
 
-import { loginQR } from '../../redux/actions';
+import { loginQR, generateQR } from '../../redux/actions';
 import { connect } from 'react-redux';
 
 const selectOption = [
-    { label: "Si / Yes", value: "1", key: 0 },
-    { label: "No / No", value: "2", key: 1 }
+    { label: "Si / Yes", value: 1, key: 0 },
+    { label: "No / No", value: 0, key: 1 }
 ];
 
 const selectOrigin = [
@@ -20,11 +20,14 @@ const selectOrigin = [
 ];
 
 const GenerateQr = props => {
+    let [origin, setOrigin] = useState("");
+    let [option, setOption] = useState("");
 
-    const handleQR=()=>{
-        props.loginQR(props)
+    const handleGenQR=()=>{
+        const {history} = props;
+        props.generateQR({history, origin, option});
     }
-
+    
     return(
         <div className="container-primary">
             <div className="container-background">
@@ -43,14 +46,18 @@ const GenerateQr = props => {
                             className="input-register-select"
                             placeholder="Seleccionar/Select"
                             options={selectOrigin}
+                            value={origin}
+                            onChange={value=>setOrigin(value)}
                         />
                         <p className="session-label">HOTEL/HOTEL</p>
                         <Select 
                             className="input-register-select"
                             placeholder="Seleccionar/Select"
                             options={selectOption}
+                            value={option}
+                            onChange={value=>setOption(value)}
                         />
-                        <button className="btn-login" onClick={()=>handleQR()}>
+                        <button className="btn-login" onClick={handleGenQR}>
                             OK
                         </button>
                     </div>
@@ -65,7 +72,8 @@ const mapStateToProps = ({ }) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    loginQR: value => dispatch(loginQR(value))
+    loginQR: value => dispatch(loginQR(value)),
+    generateQR: value => dispatch(generateQR(value))
 })
 
 export default connect(

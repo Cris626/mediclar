@@ -34,7 +34,8 @@ const Login = props => {
     )
 }
 
-const mapStateToProps = ({ }) => {
+const mapStateToProps = ({ authUser }) => {
+    console.log(authUser)
     return {};
 }
 
