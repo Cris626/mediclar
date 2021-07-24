@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
@@ -14,7 +15,7 @@ import logoMediclarForm from '../../../img/logoForm.jpg'
 import backgroundForm from '../../../img/background-form.jpg'
 import '../../../styles/styleStatus.css';
 
-const Form = () => {
+const Form = (props) => {
     return(
         <div className="container-status-primary">
 
@@ -339,9 +340,11 @@ const Form = () => {
                                     />
                                 </td>
                                 <td className="tdStatus">
-                                    <button className="button-print">
-                                        <FontAwesomeIcon className="icon-button-print" icon={ faPrint }/>
-                                    </button>
+                                    <Link to={`${props.match.path}/form-resul-pdf`}>
+                                        <button className="button-print">
+                                            <FontAwesomeIcon className="icon-button-print" icon={ faPrint }/>
+                                        </button>
+                                    </Link>
                                 </td>
                             </tr>
                         </tbody>
