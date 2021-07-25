@@ -26,15 +26,17 @@ const SelectedLang = props => {
                 <div align="center" className="container-logo">
                     <img className="logo-login" src={ logoMediclar } alt="logo"/>
                 </div>
-                <div className="container-login">
-                    <p className="session-title" style={{textAlign: "center"}}>IDIOMA / LANGUAGE</p>
-                    <p className="session-title" style={{textAlign: "center"}}>Seleccionar idioma / Select language</p>
-                    <button onClick={()=>handleChangeLang('es')}>
-                        ESPAÑOL
-                    </button>
-                    <button onClick={()=>handleChangeLang('en')}>
-                        INGLES
-                    </button>
+                <div className="container-generate-qr">
+                    <div className="container-name-generate-qr">
+                        <p className="session-title">IDIOMA / LANGUAGE</p>
+                        <p className="session-title">Seleccionar idioma / Select language</p>
+                        <button className="btn-login" onClick={()=>handleChangeLang('es')}>
+                            ESPAÑOL
+                        </button>
+                        <button className="btn-login" style={{marginTop: "20px"}} onClick={()=>handleChangeLang('en')}>
+                            INGLES
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
