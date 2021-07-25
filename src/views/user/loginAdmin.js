@@ -53,50 +53,6 @@ const LoginAdmin = props => {
 
                     <form onSubmit={ handleSubmit( onSubmit ) }>
                     <p className="session-title">INICIAR SESIÓN</p>
-
-                        <div className="container-name">
-
-                            <label
-                                htmlFor="name" 
-                                className="label-login-name"
-                            >
-                                Nombre
-                            </label>
-
-                            <input
-                                type="text"
-                                name="name"
-                                autoComplete="off"
-                                className="input-login"
-                                value="mediclar"
-                                {...register("name", {
-                                    required:{
-                                        value: true,
-                                        message: 'Campo Requerido'
-                                    }, 
-
-                                    maxLength:{
-                                        value: 15,
-                                        message: 'Maximo 15 Caracteres'
-                                    },
-                
-                                    minLength:{
-                                        value: 2,
-                                        message: 'Minimo 2 Caracteres'
-                                    },
-                
-                                    pattern:{
-                                        value: /^[A-Za-z]+$/i,
-                                        message: 'Error, Espacio solo para ingresar texto.'
-                                    }
-                
-                                })}
-                            />
-                            <FontAwesomeIcon className="iconUser" icon={ faUser }/>
-                        </div>
-
-
-
                         <div className="container-mail">
 
                             <label
@@ -111,7 +67,7 @@ const LoginAdmin = props => {
                                 name="email"
                                 autoComplete="off"
                                 className="input-login"
-                                value="admin@mediclar.com"
+                                value="admin@mail.com"
                                 {...register("email", {
                                     required:{
                                         value: true,
@@ -154,7 +110,7 @@ const LoginAdmin = props => {
                                 name="password"
                                 autoComplete="off"
                                 className="input-login"
-                                value="mediclar123"
+                                value="1234"
                                 {...register("password", {
                                     required:{
                                         value: true,
@@ -167,8 +123,8 @@ const LoginAdmin = props => {
                                     },
                 
                                     minLength:{
-                                        value: 5,
-                                        message: 'Minimo 5 Caracteres'
+                                        value: 3,
+                                        message: 'Minimo 3 Caracteres'
                                     },
                 
                                 })}
