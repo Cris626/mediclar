@@ -1,5 +1,4 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
 
 import logoMediclarForm from '../../../img/logoForm.jpg'
 import backgroundForm from '../../../img/background-form.jpg'
@@ -10,14 +9,6 @@ import imagenCRTValor from '../../../img/imagenCRTValor.jpg'
 import '../../../styles/stylePrinter.css'
 
 const FormPdf = () => {
-
-
-    const{register, handleSubmit, formState: { errors }} = useForm()
-
-    const onSubmit = (data, e) => {
-        e.target.reset()
-        console.log(data)
-    }
 
 
     return(
@@ -45,7 +36,7 @@ const FormPdf = () => {
             
                 <div className="container-print">
 
-                    <form className="form" onSubmit={ handleSubmit( onSubmit ) }>
+                    <form className="form">
 
                         <div className="container-info-prymari"> 
 
