@@ -12,19 +12,18 @@ const getLoginAsync = async (email, pass) =>{
         email: email,
         password: pass
     }).then(result => result.data).catch(err=>err.response.status);
-    console.log(resulLogin)
     return resulLogin;
 }
 
-export const loginAdmin = user => {
+export const loginAdmin = user => async (dispatch) => {
     let {history, email, password} = user;
     let flag = false;
-    let dataLogin = getLoginAsync(email, password);
+    let dataLogin = await getLoginAsync(email, password);
     const {status, data} = dataLogin;
     if(status===200){
-        // history.push('/mediclar/app/form-main')        
         flag = true;
         alert("Datos correctos");
+        history.push('/mediclar/app/form-main')        
         return {
             type: LOGIN_ADMIN,
             payload: {...data}
