@@ -15,3 +15,4 @@ export const REGISTER_PATIENT = 'REGISTER_PATIENT';
 
 export * from './auth/actions';
 export * from './settings/actions';
+export * from './patient/actions';
