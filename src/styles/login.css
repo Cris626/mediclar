@@ -23,6 +23,11 @@
     z-index: 2;
  }
 
+ .img-generate-qr{
+    width: 250px;
+    margin-top: 74px;
+ }
+
  .container-login-primary{
     width: 100vw;
     height: 100vh;
