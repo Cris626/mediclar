@@ -1,0 +1,196 @@
+*{
+    margin: 0;
+}
+
+
+
+.container-background-add img{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+}
+
+.overlay-header-add{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000000; /*COLOR DE FONDO*/
+    z-index: 0;
+    opacity: .7;
+    z-index: 2;
+ }
+
+
+ .container-login-primary-add{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+ }
+
+ .container-login-add{
+    background-color: #FFFFFF;
+    border: #535353 solid 1px;
+    border-radius: 9px;
+    padding-top: 85px;
+    padding-bottom: 35px;
+    width: 540px;
+    height: 450px;
+
+    
+    position: relative;
+    bottom: 45px;
+    left: 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+ }
+
+
+
+ .container-logo{
+    background-color: #a01f83;
+    width: 360px;
+    height: auto;
+    margin-top: 150px;
+
+    position: relative;
+    top: 45px;
+    left: 0px;
+
+    z-index: 4;
+ }
+
+ .session-title{
+    color: #5e5e5e;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 20px;
+    z-index: 4;
+ }
+
+
+
+
+ .container-name{
+    margin-bottom: 30px;
+    width: 540px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.container-state-city-primary{
+    width: 540px;
+    margin-bottom: 20px;
+
+    display: flex;
+}
+
+.container-state-city{
+    width: 50%;
+}
+
+.select-state, .select-city{
+    border: none;
+    border: solid 1px #ADADAD;
+    border-radius: 5px;
+    font-size: 18px;    
+    outline: 0 none;
+    padding-top: 5px;
+    margin-left: 20px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    width: 83%;
+}
+
+
+.label-login-name{
+    color: #5e5e5e;
+    padding-top: 15px;
+    margin-left: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all 0.5s;
+}
+
+.input-login{
+    border: none;
+    border: solid 1px #ADADAD;
+    border-radius: 5px;
+    font-size: 18px;    
+    outline: 0 none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 20px;
+    margin-top: 10px;
+    width: 90%;
+    transition-duration: 0.3s;
+}
+
+.input-login:focus{
+    border-color: #a01f83;
+    outline: 0 none;/*Quita el borde del formulario cuando damos clic*/
+}
+
+
+
+
+
+.container-name:focus-within .label-login-name{/*Damos click en el formulario y el label se anima*/
+    color: #a01f83; 
+}
+
+.container-mail:focus-within .label-login-mail{/*Damos click en el formulario y el label se anima*/
+    color: #a01f83;   
+}
+
+.container-password:focus-within .label-login-password{/*Damos click en el formulario y el label se anima*/
+    color: #a01f83;   
+}
+
+
+
+
+
+.container-name:focus-within .iconUser{/*Damos click en el formulario y el label se anima*/
+    color: #a01f83;   
+}
+
+.container-mail:focus-within .iconMail{/*Damos click en el formulario y el label se anima*/
+    color: #a01f83;   
+}
+
+.container-password:focus-within .iconPass{/*Damos click en el formulario y el label se anima*/
+    color: #a01f83;   
+}
+
+.container-btn{
+    width: 100%;
+    margin-top: 50px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.btn-login{
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    width: 120px;
+    margin: auto;
+    height: 40px;
+    text-align: center;
+    background-color: #a01f83;
+    color: #fff;
+    font-size: 15px;
+    transition: all 0.5s;
+}

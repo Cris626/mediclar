@@ -353,7 +353,7 @@ const Form = (props) => {
                     </table>
 
                         <div className="container-btn-status">
-                            <button className="btn-agregar">AGREGAR LUGAR DE ORIGEN</button>
+                            <button className="btn-agregar"onClick={()=>props.history.push("/mediclar/app/places/register")}>AGREGAR LUGAR DE ORIGEN</button>
                             <button className="btn-lugar">LUGARES DE ORIGENES</button>
                         </div>
                 </div>
