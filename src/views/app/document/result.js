@@ -11,19 +11,21 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faPhoneSquareAlt } from '@fortawesome/free-solid-svg-icons'
 
 import { useForm } from 'react-hook-form';
-
+import { connect } from 'react-redux';
+import { registerPatient } from '../../../redux/actions';
 import logoMediclarForm from '../../../img/logoForm.jpg'
 import backgroundForm from '../../../img/background-form.jpg'
 
 import '../../../styles/styleFormRegister.css';
 
-const Result = () => {
+const Result = (props) => {
 
     const{register, handleSubmit, formState: { errors }} = useForm()
 
     const onSubmit = (data, e) => {
         e.target.reset()
-        console.log(data)
+        // console.log(data)
+        props.registerPatient(data);
     }
            
 
@@ -982,4 +984,15 @@ const Result = () => {
     )
 }
 
-export default Result;
+const mapStateToProps = ({ patient }) => {
+    return { patient };
+}
+
+const mapDispatchToProps = dispatch => ({
+    registerPatient: value => dispatch(registerPatient(value))
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Result);
