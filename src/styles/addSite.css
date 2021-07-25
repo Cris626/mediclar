@@ -21,10 +21,10 @@
     z-index: 0;
     opacity: .7;
     z-index: 2;
- }
+}
 
 
- .container-login-primary-add{
+.container-login-primary-add{
     width: 100%;
     height: 100%;
 
@@ -33,9 +33,9 @@
     justify-content: center;
     flex-direction: column;
     
- }
+}
 
- .container-login-add{
+.container-login-add{
     background-color: #FFFFFF;
     border: #535353 solid 1px;
     border-radius: 9px;
@@ -53,11 +53,49 @@
     align-items: center;
     justify-content: center;
     z-index: 3;
- }
+}
+
+.container-login-successful-primary{
+    background-color: #FFFFFF;
+    border: #535353 solid 1px;
+    border-radius: 9px;
+    padding-top: 85px;
+    padding-bottom: 35px;
+    width: 540px;
+    height: 450px;
+
+    
+    position: relative;
+    bottom: 45px;
+    left: 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.container-login-successful{
+  
+}
+
+.container-title-successful{
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.container-img-successful{
+    text-align: center;
+}
+
+.container-img-successful img{
+    width: 170px;
+}
 
 
 
- .container-logo{
+
+.container-logo{
     background-color: #a01f83;
     width: 360px;
     height: auto;
@@ -68,20 +106,20 @@
     left: 0px;
 
     z-index: 4;
- }
+}
 
- .session-title{
+.session-title{
     color: #5e5e5e;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     padding-bottom: 20px;
     z-index: 4;
- }
+}
 
 
 
 
- .container-name{
+.container-name{
     margin-bottom: 30px;
     width: 540px;
 

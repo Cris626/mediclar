@@ -65,21 +65,7 @@ const CreatePlaces = props => {
                                         value: true,
                                         message: 'Campo Requerido'
                                     }, 
-
-                                    maxLength:{
-                                        value: 15,
-                                        message: 'Maximo 15 Caracteres'
-                                    },
                 
-                                    minLength:{
-                                        value: 2,
-                                        message: 'Minimo 2 Caracteres'
-                                    },
-                
-                                    pattern:{
-                                        value: /^[A-Za-z]+$/i,
-                                        message: 'Error, Espacio solo para ingresar texto.'
-                                    }
                 
                                 })}
                             />
