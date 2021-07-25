@@ -352,8 +352,11 @@ const Form = (props) => {
 
                     </table>
 
+                        <div className="container-btn-status">
+                            <button className="btn-agregar">AGREGAR LUGAR DE ORIGEN</button>
+                            <button className="btn-lugar">LUGARES DE ORIGENES</button>
+                        </div>
                 </div>
-
 
             </div>
                 <div className="footer">

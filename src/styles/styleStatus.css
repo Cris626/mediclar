@@ -380,7 +380,43 @@
     height: auto;
 }
 
+.container-btn-status{
 
+    width: 100%;
+    margin-left: 30px;
+    margin-top: 50px;
+    display: flex;
+}
+
+.btn-agregar{
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    width: 320px;
+    
+    margin-right: 10px;
+    height: 40px;
+    text-align: center;
+    background-color: #a01f83;
+    color: #fff;
+    font-size: 15px;
+    transition: all 0.5s;
+}
+
+.btn-lugar{
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    width: 320px;
+    
+    margin-left: 10px;
+    height: 40px;
+    text-align: center;
+    background-color: #7e7c7d;
+    color: #fff;
+    font-size: 15px;
+    transition: all 0.5s;
+}
 
 
 
