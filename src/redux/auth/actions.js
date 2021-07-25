@@ -5,29 +5,40 @@ import {
     GENERATE_QR
 } from '../actions';
 
-export const loginAdmin = user => {
-    let history = user.history;
-    let flag = false;
-    let dataAuthentication = {
-        email: "admin@mediclar.com",
-        name: "mediclar",
-        password: "mediclar123"
-    }
+/* LOGIN ADMIN */
 
-    if(dataAuthentication.name === user.name && dataAuthentication.password === user.password && dataAuthentication.email === user.email){
-        history.push('/mediclar/app/form-main')        
+const getLoginAsync = async (email, pass) =>{
+    let resulLogin = await axios.post('https://sleepy-turing.50-21-189-39.plesk.page/api/v1/users/signin-local',{
+        email: email,
+        password: pass
+    }).then(result => result.data).catch(err=>err.response.status);
+    console.log(resulLogin)
+    return resulLogin;
+}
+
+export const loginAdmin = user => {
+    let {history, email, password} = user;
+    let flag = false;
+    let dataLogin = getLoginAsync(email, password);
+    const {status, data} = dataLogin;
+    if(status===200){
+        // history.push('/mediclar/app/form-main')        
         flag = true;
         alert("Datos correctos");
+        return {
+            type: LOGIN_ADMIN,
+            payload: {...data}
+        }
     }else{
-        history.push('/')
+        // history.push('/')
         flag = false;
         alert("Datos incorrectos");
+        return {
+            type: LOGIN_ADMIN,
+            payload: ""
+        }
     }
-
-    return {
-        type: LOGIN_ADMIN,
-        payload: {...user, flag}
-    }
+    
 }
 
 export const loginQR = value => {
@@ -38,6 +49,8 @@ export const loginQR = value => {
         payload: value
     }
 }
+
+/* GENERATE QR */
 
 const getQrAsync = async (option, origin) => {
     let resultQr = await axios.post('https://sleepy-turing.50-21-189-39.plesk.page/api/v1/locations/generate-qr',{
