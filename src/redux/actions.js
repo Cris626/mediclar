@@ -10,6 +10,7 @@ export const GENERATE_QR = 'GENERATE_QR';
 /* PATIENT */
 
 export const REGISTER_PATIENT = 'REGISTER_PATIENT';
+export const GET_LOCATION = 'GET_LOCATION';
 
 /* ALL */
 

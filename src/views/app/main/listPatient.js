@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
@@ -14,7 +14,22 @@ import logoMediclarForm from '../../../img/logoForm.jpg'
 import backgroundForm from '../../../img/background-form.jpg'
 import '../../../styles/styleListPatients.css';
 
+import { connect } from 'react-redux';
+import { getLocation } from '../../../redux/actions';
+
 const ListPatient = (props) => {
+    const [locations, setLocations] = useState();
+
+    const handleGetLocations = async () => {
+        let data = props.getLocation();
+        let promise = await Promise.resolve(data);
+        setLocations(promise.payload);
+    }
+
+    useEffect(()=>{
+        handleGetLocations();
+    }, [])
+
     return(
         <div className="container-status-primary">
 
@@ -135,22 +150,23 @@ const ListPatient = (props) => {
                             </tr>
                         </thead>
                         <tbody>
-
-                            <tr>
-                                <td className="tdStatus">Nombre 1</td>
-                                <td className="tdStatus">Jalisco</td>
-                                <td className="tdStatus">Guadalajara</td>
-                                <td className="tdStatus">Nombre Empresa 1</td>
-                                <td className="tdStatus">Dirección 1</td>
-                                <td className="tdStatus">
-                                        <button className="button-list">
-                                            <FontAwesomeIcon className="icon-button-edit" icon={ faEdit }/>
-                                        </button>
-                                        <button className="button-list">
-                                            <FontAwesomeIcon className="icon-button-delet" icon={ faTrashAlt }/>
-                                        </button>
-                                </td>
-                            </tr>
+                            {locations!==undefined?locations.map(x=>{
+                                return <tr key={x.id}>
+                                    <td className="tdStatus" key={x.name}>{x.name}</td>
+                                    <td className="tdStatus" key={x.city.estado[0].estado}>{x.city.estado[0].estado}</td>
+                                    <td className="tdStatus" key={x.city.municipio}>{x.city.municipio}</td>
+                                    <td className="tdStatus" key={x.company}>{x.company}</td>
+                                    <td className="tdStatus" key={x.address}>{x.address}</td>
+                                    <td className="tdStatus" key={x.id+1}>
+                                            <button key={`Button-${x.id+2}`} className="button-list">
+                                                <FontAwesomeIcon className="icon-button-edit" icon={ faEdit }/>
+                                            </button>
+                                            <button key={`Button-${x.id+3}`} className="button-list">
+                                                <FontAwesomeIcon className="icon-button-delet" icon={ faTrashAlt }/>
+                                            </button>
+                                    </td>
+                                </tr>
+                            }):<tr></tr>}
                         </tbody>
                        
 
@@ -169,4 +185,15 @@ const ListPatient = (props) => {
     )
 }
 
-export default ListPatient;
+const mapStateToProps = ({patient}) => {
+    return patient;
+};
+
+const mapDispatchToProps = dispatch => ({
+    getLocation: () => dispatch(getLocation())
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ListPatient);
