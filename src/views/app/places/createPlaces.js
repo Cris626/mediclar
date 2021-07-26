@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useState , useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { connect } from 'react-redux';
+import { getStates } from '../../../redux/actions';
+import Select from 'react-select';
 
 import logoMediclar from '../../../img/logo.jpg'
 import backgroundLogin from '../../../img/background-login.jpg'
@@ -7,19 +10,30 @@ import backgroundLogin from '../../../img/background-login.jpg'
 import '../../../styles/addSite.css';
 
 const CreatePlaces = props => {
+    const [states, setStates] = useState()
 
     const{register, handleSubmit, formState: { errors }} = useForm()
 
     const onSubmit = (data, e) => {
-        let history = props.history;
-        e.target.reset();
-        props.loginAdmin({...data, history});
+        // let history = props.history;
+        // e.target.reset();
+        // props.loginAdmin({...data, history});
     }
+
+    const handleGetStates = async () => {
+        let data = props.getStates();
+        let promise = await Promise.resolve(data);
+        setStates(promise.payload)
+    }
+
+    useEffect(()=> {
+        handleGetStates();
+    }, [])
 
 
     const handleNext=()=>{
         let {history} = props;
-        history.push('/mediclar/app/places/register-successful')
+        // history.push('/mediclar/app/places/register-successful')
     }
 
     return(
@@ -167,7 +181,7 @@ const CreatePlaces = props => {
 
 
                         <div className="container-btn">
-                            <button className="btn-login" onClick={()=> handleNext()}>ACEPTAR</button>
+                            <button className="btn-login" onClick={()=> console.log(states)}>ACEPTAR</button>
                         </div>
 
                     </form>
@@ -178,4 +192,15 @@ const CreatePlaces = props => {
     )
 }
 
-export default CreatePlaces;
+const mapStateToProps = ({ settings }) => {
+    return settings;
+}
+
+const mapDispatchToProps = dispatch => ({
+    getStates: () => dispatch(getStates())
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(CreatePlaces);
