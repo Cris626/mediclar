@@ -122,7 +122,7 @@ const Form = (props) => {
                                         htmlFor="business" 
                                         className="label-form-search"
                                     >
-                                        Ciudad
+                                        Empresa
                                     </label>
 
                                     <input
@@ -354,9 +354,8 @@ const Form = (props) => {
 
                         <div className="container-btn-status">
                             <button className="btn-agregar"onClick={()=>props.history.push("/mediclar/app/places/register")}>AGREGAR LUGAR DE ORIGEN</button>
-                            <button className="btn-lugar">LUGARES DE ORIGENES</button>
+                            <button className="btn-lugar" onClick={()=>props.history.push("/mediclar/app/form-main/patient-list")}>LUGARES DE ORIGENES</button>                        </div>
                         </div>
-                </div>
 
             </div>
                 <div className="footer">
