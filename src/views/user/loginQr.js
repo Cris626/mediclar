@@ -33,9 +33,9 @@ const Login = props => {
                     <div className="container-name-generate-qr">
                         <p className="session-title"  style={{fontSize: "20px", width: "130px", paddingBottom: "6.5px"}} >INGRESAR</p>
                         <img className="img-generate-qr" src={`${qr}`} />
-                        <button onClick={()=>props.loginQR(props)}>
+                        {/* {<button onClick={()=>props.loginQR(props)}>
                             QR
-                        </button>
+                        </button>} */}
                     </div>
                 </div>
             </div>

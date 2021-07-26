@@ -150,7 +150,7 @@ const ListPatient = (props) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* {locations!==undefined?locations.map(x=>{
+                            {locations!==undefined?locations.map(x=>{
                                 return <tr key={x.id}>
                                     <td className="tdStatus" key={x.name}>{x.name}</td>
                                     <td className="tdStatus" key={x.city.estado[0].estado}>{x.city.estado[0].estado}</td>
@@ -166,7 +166,7 @@ const ListPatient = (props) => {
                                             </button>
                                     </td>
                                 </tr>
-                            }):<tr></tr>} */}
+                            }):<tr></tr>}
                         </tbody>
                        
 
