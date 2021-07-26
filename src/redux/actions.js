@@ -1,5 +1,6 @@
 /* SETTINGS */
 export const CHANGE_LOCALE = "CHANGE_LOCALE";
+export const GET_STATES = "GET_STATES";
 
 /* LOGIN */
 

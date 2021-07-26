@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useState , useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { connect } from 'react-redux';
+import { getStates } from '../../../redux/actions';
+import SelectStates from '../../../helpers/selectState';
+import Select from 'react-select';
 
 import logoMediclar from '../../../img/logo.jpg'
 import backgroundLogin from '../../../img/background-login.jpg'
@@ -7,7 +11,12 @@ import backgroundLogin from '../../../img/background-login.jpg'
 import '../../../styles/addSite.css';
 
 const CreatePlaces = props => {
-
+    const [states, setStates] = useState();
+    const [selectState, setSelectState] = useState();
+    const [state, setState] = useState();
+    const [city, setCity] = useState();
+    const [municipio, setMunicipio] = useState();
+    
     const{register, handleSubmit, formState: { errors }} = useForm()
 
     const onSubmit = (data, e) => {
@@ -15,6 +24,35 @@ const CreatePlaces = props => {
         e.target.reset();
         props.loginAdmin({...data, history});
     }
+
+    const handleGetStates = async () => {
+        let resulStates = [];
+        let data = props.getStates();
+        let promise = await Promise.resolve(data);
+        await promise.payload.map(x=>{
+            resulStates.push({ label: x.estado, value: x.id, key: x.id })
+        })
+        setSelectState(resulStates)
+        setStates(promise.payload)
+    }
+
+    const selectCity = async (id) => {
+        setMunicipio("")
+        let data = states;
+        let resulData = [];
+        await data.map(x=>{
+            if(x.id===id){
+                x.municipios.map(y=>{
+                    resulData.push({ label: y.municipio, value: y.id, key: y.id})
+                })
+            }
+        })
+        setCity(resulData);
+    }
+
+    useEffect(()=> {
+        handleGetStates();
+    }, [])
 
 
     const handleNext=()=>{
@@ -79,16 +117,16 @@ const CreatePlaces = props => {
                                 >
                                     Estado
                                 </label>
-                                    <select
-                                        name="Estado"
-                                        className="select-state"
-                                    >
-                                        <option value="">Seleccionar</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-
-                                    </select>
+                                <Select
+                                    className="select-state"
+                                    placeholder="Seleccionar"
+                                    name="Estado"
+                                    options={selectState}
+                                    value={state}
+                                    onChange={value=>selectCity(value.value)}
+                                />
                             </div>
+
 
                             <div className="container-state-city">
                                 <label
@@ -97,15 +135,14 @@ const CreatePlaces = props => {
                                 >
                                     Ciudad
                                 </label>
-                                    <select
-                                        name="Ciudad"
-                                        className="select-city"
-                                    >
-                                        <option value="">Seleccionar</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-
-                                    </select>
+                                <Select
+                                    className="select-city"
+                                    placeholder="Seleccionar"
+                                    name="Ciudad"
+                                    options={city}
+                                    value={municipio}
+                                    onChange={value=>setMunicipio(value)}
+                                />
                             </div>
                         </div>
 
@@ -136,7 +173,7 @@ const CreatePlaces = props => {
                                     htmlFor="Ciudad" 
                                     className="label-login-name"
                                 >
-                                    Ciudad
+                                    Direccion
                                 </label>
                                     <select
                                         name="Ciudad"
@@ -178,4 +215,15 @@ const CreatePlaces = props => {
     )
 }
 
-export default CreatePlaces;
+const mapStateToProps = ({ settings }) => {
+    return settings;
+}
+
+const mapDispatchToProps = dispatch => ({
+    getStates: () => dispatch(getStates())
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(CreatePlaces);

@@ -1,7 +1,8 @@
 import { defaultLocale, localeOptions } from '../../constants/defaultValues';
 
 import {
-    CHANGE_LOCALE
+    CHANGE_LOCALE, 
+    GET_STATES
 } from '../actions';
 
 const initialState = {
@@ -12,6 +13,8 @@ export default (state = initialState, action) => {
     switch(action.type){
         case CHANGE_LOCALE:
             return{ ...state, locale: action.payload};
+        case GET_STATES:
+            return {...state, states: {...action.payload}}
         default:
             return { ...state };
     }
