@@ -60,10 +60,9 @@ const getQrAsync = async (option, origin) => {
 }
 
 export const generateQR = value => {
-    const {history, option, origin} = value;
-    if(option && origin){
-        let dataQr = getQrAsync(option, origin);
-        // const promise = await Promise.resolve(resultQr);
+    const {history, option, states} = value;
+    if(option && states){
+        let dataQr = getQrAsync(option, states);
         history.push('/mediclar/login-qr');
         return{
             type: GENERATE_QR,
