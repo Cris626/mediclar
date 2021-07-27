@@ -36,6 +36,7 @@ const LoginAdmin = props => {
             const { token } = value;
             const { history } = props;
             localStorage.setItem("Authorization", token);
+            setLoader(false)
             history.push('/mediclar/app/form-main');
         }else if(status===404){
             setLoader(false)
@@ -45,7 +46,7 @@ const LoginAdmin = props => {
 
     useEffect(()=>{
         handleLogin(props.authUser);
-    }, [props, loader])
+    }, [props])
 
     return(
 
@@ -162,11 +163,7 @@ const LoginAdmin = props => {
 
 
                         <div className="container-btn">
-                            <button className="btn-login">LOGIN</button>
-                        </div>
-
-                        <div className="container-pre-loader">
-                            {<img src={ preloader } alt="preloader" />&&loader}
+                            {!loader?<button className="btn-login">LOGIN</button>:<img src={ preloader } style={{width: "20px"}} alt="preloader" />}
                         </div>
 
                     </form>
