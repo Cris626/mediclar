@@ -2,7 +2,8 @@ import axios from 'axios';
 import {
     LOGIN_ADMIN,
     LOGIN_QR,
-    GENERATE_QR
+    GENERATE_QR,
+    CLEAN_DATA
 } from '../actions';
 
 /* LOGIN ADMIN */
@@ -16,28 +17,20 @@ const getLoginAsync = async (email, pass) =>{
 }
 
 export const loginAdmin = user => async (dispatch) => {
-    let {history, email, password} = user;
-    let flag = false;
+    let {email, password} = user;
     let dataLogin = await getLoginAsync(email, password);
     const {status, data} = dataLogin;
     if(status===200){
-        flag = true;
-        alert("Datos correctos");
-        history.push('/mediclar/app/form-main')        
-        return {
+        return dispatch({
             type: LOGIN_ADMIN,
-            payload: {...data}
-        }
+            payload: {...data, status}
+        })
     }else{
-        // history.push('/')
-        flag = false;
-        alert("Datos incorrectos");
-        return {
+        return dispatch({
             type: LOGIN_ADMIN,
-            payload: ""
-        }
+            payload: {status: dataLogin}
+        })
     }
-    
 }
 
 export const loginQR = value => {
@@ -69,10 +62,19 @@ export const generateQR = value => {
             payload: {dataQr}
         }
     }else{
-        alert("**Seleccionar opciones**")
+        // alert("**Seleccionar opciones**")
         return{
             type: GENERATE_QR,
             payload: ""
         }
     }
+}
+
+/* CLEAN_DATA */
+
+export const cleanData = () => async (dispatch) =>{
+    return dispatch({
+        type: CLEAN_DATA,
+        payload: ""
+    })
 }
