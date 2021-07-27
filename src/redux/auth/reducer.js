@@ -4,10 +4,12 @@ import {
     GENERATE_QR
 } from '../actions';
 
-const initialState = {}
+const initialState = {
+    flag: false
+}
 
-let reducer = ( state = initialState, action) => {
-    switch (action.type) {
+export default ( state = initialState, action) => {
+    switch(action.type){
         case LOGIN_ADMIN:
             return { ...state, ...action.payload };
         case LOGIN_QR:
@@ -18,5 +20,3 @@ let reducer = ( state = initialState, action) => {
             return { ...state };
     }
 }
-
-export default reducer;

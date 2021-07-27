@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -18,18 +18,35 @@ import IntlMessages from '../../helpers/IntlMessages';
 import '../../styles/login.css';
 
 const LoginAdmin = props => {
-    const [data, setData] = useState({
-        user: '',
-        password: ''
-    });
+    // const [email, setEmail] = useState("admin@mail.com");
+    // const [password, setPassword] = useState("1234");
+    const [loader, setLoader] = useState(false);
 
     const{register, handleSubmit, formState: { errors }} = useForm()
 
     const onSubmit = (data, e) => {
-        let history = props.history;
+        setLoader(true);
         e.target.reset();
-        props.loginAdmin({...data, history});
+        props.loginAdmin({...data});
     }
+
+    const handleLogin=(value)=>{
+        const { status } = value;
+        if(status===200){
+            const { token } = value;
+            const { history } = props;
+            localStorage.setItem("Authorization", token);
+            history.push('/mediclar/app/form-main');
+        }else if(status===404){
+            setLoader(false)
+            return console.log("Email o contraseña incorrectos")
+        }
+    }
+
+    useEffect(()=>{
+        handleLogin(props.authUser);
+        console.log(loader)
+    }, [props, loader])
 
     return(
 
@@ -68,7 +85,6 @@ const LoginAdmin = props => {
                                 name="email"
                                 autoComplete="off"
                                 className="input-login"
-                                value="admin@mail.com"
                                 {...register("email", {
                                     required:{
                                         value: true,
@@ -111,7 +127,6 @@ const LoginAdmin = props => {
                                 name="password"
                                 autoComplete="off"
                                 className="input-login"
-                                value="1234"
                                 {...register("password", {
                                     required:{
                                         value: true,
@@ -152,7 +167,7 @@ const LoginAdmin = props => {
                         </div>
 
                         <div className="container-pre-loader">
-                            <img src={ preloader } alt="preloader" />
+                            {<img src={ preloader } alt="preloader" />&&loader}
                         </div>
 
                     </form>
@@ -164,7 +179,7 @@ const LoginAdmin = props => {
 }
 
 const mapStateToProps = ({authUser}) => {
-    return authUser;
+    return { authUser };
 };
 
 const mapDispatchToProps = dispatch => ({
