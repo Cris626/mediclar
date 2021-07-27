@@ -2,18 +2,16 @@
     margin: 0;
 }
 
-.container-primary{
-    background:-webkit-linear-gradient(top, rgb(16, 77, 124), rgb(162, 215, 231));  
-}
-
 .container-background img{
+    width: 100%;
+    height: 100%;
     position: fixed;
     z-index: 1;
 }
 
 .overlay-header{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
@@ -29,9 +27,8 @@
  }
 
  .container-login-primary{
-    width: 100vw;
-    height: 100vh;
-    background-color: brown;
+    width: 100%;
+    height: 100%;
 
     display: flex;
     align-items: center;
@@ -224,4 +221,11 @@
     color: #fff;
     font-size: 15px;
     transition: all 0.5s;
+}
+
+.container-pre-loader img{
+    width: 80px;
+    left: 180px;
+    bottom: 10px;
+    position: absolute;
 }
