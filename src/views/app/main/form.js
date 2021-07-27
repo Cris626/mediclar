@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -15,7 +15,46 @@ import logoMediclarForm from '../../../img/logoForm.jpg'
 import backgroundForm from '../../../img/background-form.jpg'
 import '../../../styles/styleStatus.css';
 
+import { connect } from 'react-redux';
+import { getStates } from '../../../redux/actions';
+import Select from 'react-select';
+
 const Form = (props) => {
+    const [states, setStates] = useState();
+    const [selectState, setSelectState] = useState();
+    const [state, setState] = useState();
+    const [city, setCity] = useState();
+    const [municipio, setMunicipio] = useState();
+
+    const handleGetStates = async () => {
+        let resulStates = [];
+        let data = props.getStates();
+        let promise = await Promise.resolve(data);
+        await promise.payload.map(x=>{
+            resulStates.push({ label: x.estado, value: x.id, key: x.id })
+        })
+        setSelectState(resulStates)
+        setStates(promise.payload)
+    }
+
+    const selectCity = async (id) => {
+        setMunicipio("")
+        let data = states;
+        let resulData = [];
+        await data.map(x=>{
+            if(x.id===id){
+                x.municipios.map(y=>{
+                    resulData.push({ label: y.municipio, value: y.id, key: y.id})
+                })
+            }
+        })
+        setCity(resulData);
+    }
+
+    useEffect(()=> {
+        handleGetStates();
+    }, [])
+
     return(
         <div className="container-status-primary">
 
@@ -86,15 +125,15 @@ const Form = (props) => {
                                         Estado
                                     </label>
 
-                                    <select
-                                        name="status"
+                                    <Select
                                         className="select-status-status"
-                                    >
-                                        <option value="">Selection..</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
+                                        placeholder="Seleccionar"
+                                        name="status"
+                                        options={selectState}
+                                        value={state}
+                                        onChange={value=>selectCity(value.value)}
+                                    />
 
-                                    </select>
                                 </div>
 
                                 
@@ -106,15 +145,14 @@ const Form = (props) => {
                                         Ciudad
                                     </label>
 
-                                    <select
-                                        name="city"
+                                    <Select
                                         className="select-status-city"
-                                    >
-                                        <option value="">Selection..</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-
-                                    </select>
+                                        placeholder="Seleccionar"
+                                        name="city"
+                                        options={city}
+                                        value={municipio}
+                                        onChange={value=>setMunicipio(value)}
+                                    />
                                 </div>
 
                                 <div className="container-search">
@@ -365,4 +403,15 @@ const Form = (props) => {
     )
 }
 
-export default Form;
+const mapStateToProps = ({ settings }) => {
+    return {settings};
+}
+
+const mapDispatchToProps = dispatch => ({
+    getStates: () => dispatch(getStates())
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Form);
