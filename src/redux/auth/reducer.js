@@ -1,7 +1,8 @@
 import {
     LOGIN_ADMIN,
     LOGIN_QR,
-    GENERATE_QR
+    GENERATE_QR,
+    CLEAN_DATA
 } from '../actions';
 
 const initialState = {
@@ -16,6 +17,8 @@ export default ( state = initialState, action) => {
             return { ...state, ...action.payload };
         case GENERATE_QR:
             return { ...state, ...action.payload };
+        case CLEAN_DATA:
+            return { state: initialState };
         default:
             return { ...state };
     }

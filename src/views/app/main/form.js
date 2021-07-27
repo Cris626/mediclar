@@ -16,7 +16,7 @@ import backgroundForm from '../../../img/background-form.jpg'
 import '../../../styles/styleStatus.css';
 
 import { connect } from 'react-redux';
-import { getStates } from '../../../redux/actions';
+import { getStates, cleanData } from '../../../redux/actions';
 import Select from 'react-select';
 
 const Form = (props) => {
@@ -53,6 +53,7 @@ const Form = (props) => {
 
     useEffect(()=> {
         handleGetStates();
+        props.cleanData();
     }, [])
 
     return(
@@ -408,7 +409,8 @@ const mapStateToProps = ({ settings }) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    getStates: () => dispatch(getStates())
+    getStates: () => dispatch(getStates()),
+    cleanData: () => dispatch(cleanData())
 })
 
 export default connect(

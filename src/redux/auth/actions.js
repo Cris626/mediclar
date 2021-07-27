@@ -2,7 +2,8 @@ import axios from 'axios';
 import {
     LOGIN_ADMIN,
     LOGIN_QR,
-    GENERATE_QR
+    GENERATE_QR,
+    CLEAN_DATA
 } from '../actions';
 
 /* LOGIN ADMIN */
@@ -67,4 +68,13 @@ export const generateQR = value => {
             payload: ""
         }
     }
+}
+
+/* CLEAN_DATA */
+
+export const cleanData = () => async (dispatch) =>{
+    return dispatch({
+        type: CLEAN_DATA,
+        payload: ""
+    })
 }

@@ -45,7 +45,6 @@ const LoginAdmin = props => {
 
     useEffect(()=>{
         handleLogin(props.authUser);
-        console.log(loader)
     }, [props, loader])
 
     return(
