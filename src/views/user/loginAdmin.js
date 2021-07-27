@@ -8,6 +8,7 @@ import { faLock } from '@fortawesome/free-solid-svg-icons'
 
 import logoMediclar from '../../img/logo.jpg'
 import backgroundLogin from '../../img/background-login.jpg'
+import preloader from '../../img/loader.gif'
 
 import { connect } from 'react-redux';
 import { loginAdmin } from '../../redux/actions';
@@ -148,6 +149,10 @@ const LoginAdmin = props => {
 
                         <div className="container-btn">
                             <button className="btn-login">LOGIN</button>
+                        </div>
+
+                        <div className="container-pre-loader">
+                            <img src={ preloader } alt="preloader" />
                         </div>
 
                     </form>
