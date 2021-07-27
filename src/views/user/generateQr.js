@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../styles/login.css';
 import Select from 'react-select';
 
 import logoMediclar from '../../img/logo.jpg';
 import backgroundLogin from '../../img/background-login.jpg';
 
-import { loginQR, generateQR } from '../../redux/actions';
+import { getStates, generateQR } from '../../redux/actions';
 import { connect } from 'react-redux';
 
 const selectOption = [
@@ -13,25 +13,29 @@ const selectOption = [
     { label: "No / No", value: 0, key: 1 }
 ];
 
-// const selectOrigin = [
-//     { label: "Guadalajara", value: 0, key: 0 },
-//     { label: "Puerto Vallarta", value: 1, key: 1 },
-//     { label: "CDMX", value: 2, key: 2 }
-// ];
-const selectOrigin = [
-    { label: "Guadalajara", value: 1, key: 0 },
-    { label: "Puerto Vallarta", value: 1, key: 1 },
-    { label: "CDMX", value: 1, key: 2 }
-];
-
 const GenerateQr = props => {
-    let [origin, setOrigin] = useState("");
     let [option, setOption] = useState("");
+    const [states, setStates] = useState();
+    const [selectState, setSelectState] = useState();
 
     const handleGenQR=()=>{
         const {history} = props;
-        props.generateQR({history, origin, option});
+        props.generateQR({history, states, option});
     }
+
+    const handleGetStates = async () => {
+        let resulStates = [];
+        let data = props.getStates();
+        let promise = await Promise.resolve(data);
+        await promise.payload.map(x=>{
+            resulStates.push({ label: x.estado, value: x.id, key: x.id })
+        })
+        setSelectState(resulStates)
+    }
+
+    useEffect(()=>{
+        handleGetStates();
+    }, [])
     
     return(
         <div className="container-primary">
@@ -50,9 +54,9 @@ const GenerateQr = props => {
                         <Select 
                             className="input-register-select"
                             placeholder="Seleccionar/Select"
-                            options={selectOrigin}
-                            value={origin}
-                            onChange={value=>setOrigin(value)}
+                            options={selectState}
+                            value={states}
+                            onChange={value=>setStates(value)}
                         />
                         <p className="session-label">HOTEL/HOTEL</p>
                         <Select 
@@ -72,12 +76,13 @@ const GenerateQr = props => {
     )
 }
 
-const mapStateToProps = ({authUser }) => {
-    return {authUser};
+const mapStateToProps = ({authUser, settings }) => {
+    return {authUser, settings};
 }
 
 const mapDispatchToProps = dispatch => ({
-    generateQR: value => dispatch(generateQR(value))
+    generateQR: value => dispatch(generateQR(value)),
+    getStates: () => dispatch(getStates())
 })
 
 export default connect(
