@@ -118,7 +118,7 @@ const CreatePlaces = props => {
                                     Estado
                                 </label>
                                 <Select
-                                    className="select-state"
+                                    className="select-state-add"
                                     placeholder="Seleccionar"
                                     name="Estado"
                                     options={selectState}
@@ -136,7 +136,7 @@ const CreatePlaces = props => {
                                     Ciudad
                                 </label>
                                 <Select
-                                    className="select-city"
+                                    className="select-city-add"
                                     placeholder="Seleccionar"
                                     name="Ciudad"
                                     options={city}
