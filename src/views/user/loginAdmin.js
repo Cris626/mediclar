@@ -35,7 +35,7 @@ const LoginAdmin = props => {
         if(status===200){
             const { token } = value;
             const { history } = props;
-            localStorage.setItem("Authorization", token);
+            localStorage.setItem("Authorization", `Bearer ${token}`);
             setLoader(false)
             history.push('/mediclar/app/form-main');
         }else if(status===404){

@@ -21,7 +21,7 @@ export const changeLocale = (locale) => {
 /* GET STATES */
 
 const getStatesAsync = async () => {
-    let resulData = await axios.post('https://sleepy-turing.50-21-189-39.plesk.page/api/v1/locations/get-estados', {headers: authorizationToken })
+    let resulData = await axios.post('https://sleepy-turing.50-21-189-39.plesk.page/api/v1/locations/get-estados', {headers: {authorizationToken}})
     .then(resul => resul.data).catch(err=>err);
     return resulData;
 }

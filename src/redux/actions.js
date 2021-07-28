@@ -13,6 +13,7 @@ export const CLEAN_DATA = 'CLEAN_DATA';
 
 export const REGISTER_PATIENT = 'REGISTER_PATIENT';
 export const GET_LOCATION = 'GET_LOCATION';
+export const REGISTER_LOCATION = 'REGISTER_LOCATION';
 
 /* ALL */
 
