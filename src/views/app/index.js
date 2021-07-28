@@ -8,14 +8,14 @@ const Document = React.lazy(()=> import('./document'));
 const Places = React.lazy(()=> import('./places'));
 
 const App = (props) => {
+    let authorizationToken = localStorage.getItem("Authorization");
     const {match} = props;
     return(
         <div>
             <Switch>
-                {/* <Redirect exact from={`${match.url}`} to={`${match.url}/main`} /> */}
-                <Route                
+                <Route
                     path={`${match.url}/form-main`}
-                    render={props=> <Main {...props}/>}
+                    render={props=>  authorizationToken? <Main {...props}/>: <Redirect to={'/mediclar/admin-login'} />}
                 />
                 <Route
                     path={`${match.url}/result-document`}
@@ -23,7 +23,7 @@ const App = (props) => {
                 />
                 <Route
                     path={`${match.url}/places`}
-                    render={props=> <Places {...props}/>}
+                    render={props=> authorizationToken? <Places {...props}/>: <Redirect to='/mediclar/admin-login' />}
                 />
             </Switch>
         </div>
