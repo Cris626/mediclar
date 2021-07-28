@@ -152,7 +152,7 @@ const ListPatient = (props) => {
                                     </label>
 
                                     <Select
-                                        className="select-city"
+                                        className="select-list-city"
                                         placeholder="Seleccionar"
                                         name="Ciudad"
                                         options={city}
