@@ -4,6 +4,8 @@ import {
     GET_STATES
 } from '../actions';
 
+const authorizationToken = localStorage.getItem("Authorization");
+
 /* CHANGE LOCALE */
 
 export const changeLocale = (locale) => {
@@ -19,7 +21,7 @@ export const changeLocale = (locale) => {
 /* GET STATES */
 
 const getStatesAsync = async () => {
-    let resulData = await axios.post('https://sleepy-turing.50-21-189-39.plesk.page/api/v1/locations/get-estados')
+    let resulData = await axios.post('https://sleepy-turing.50-21-189-39.plesk.page/api/v1/locations/get-estados', {headers: authorizationToken })
     .then(resul => resul.data).catch(err=>err);
     return resulData;
 }
