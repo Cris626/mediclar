@@ -29,6 +29,8 @@ module.exports = {
     "form.email": "E-mail",
     "form.confirm-email": "Confirm E-mail",
     "form.phone": "Telephone",
+    "form.hotel": "Hotel",
+    "form.Room": "Room",
     "form.test-reason": "Reason for testing",
     "form.test-reason.option.first": "Travel",
     "form.test-reason.option.second": "Syntoms",

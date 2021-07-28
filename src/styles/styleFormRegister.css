@@ -179,18 +179,35 @@
     flex-direction: column;
 }
 
+.container-block-register-motive-proof{
+    width: 100%;
+    margin-top: 35px;
+    margin-left: 30px;
+    display: flex;
+}
+
+.container-motive-proof-register-primary{
+    width: 100%;
+    display: flex;
+}
+
 .container-motive-proof-register{
-    margin-top: 20px;
-    width: 32%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-motive-proof-register-control{
+    margin-top: 30px;
+    margin-right: 70px;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
 
 
 .container-test-type-register{
-    margin-top: 50px;
-    margin-left: 30px;
-    width: 32%;
+    width: 80%;
     display: flex;
     flex-direction: column;
 }
@@ -232,6 +249,8 @@
 .input-register-phone,
 .input-register-email,
 .input-register-confirm-email,
+.input-register-hotel,
+.input-register-room,
 .input-register-confirm-name-passer,
 .input-register-confirm-date
 {
@@ -273,6 +292,8 @@
 .input-register-phone:focus,
 .input-register-email:focus,
 .input-register-confirm-email:focus,
+.input-register-hotel:focus,
+.input-register-room:focus,
 .input-register-confirm-name-passer:focus,
 .input-register-confirm-date:focus
 {
@@ -466,6 +487,27 @@
 }
 
 
+@media screen and (max-width: 1050px){
+    .container-block-register-motive-proof{
+
+        width: 98%;
+        margin-left: 5px;
+        margin-right: 5px;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container-motive-proof-register-primary{
+        
+    }
+
+    .container-test-type-register{
+        
+        margin-top: 50px;
+    }
+   
+}
 
 
 
@@ -515,15 +557,6 @@
 
     .container-register-phone{
         padding-top: 18px;
-    }
-
-    .container-motive-proof-register{
-        margin-left: 20px;
-        width: 100%;
-    }
-
-    .container-test-type-register{
-        width: 100%;
     }
 
     .container-form-register-notice{
