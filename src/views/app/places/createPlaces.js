@@ -1,7 +1,7 @@
 import React, { useState , useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { connect } from 'react-redux';
-import { getStates } from '../../../redux/actions';
+import { getStates, registerLocation, cleanDataPatient } from '../../../redux/actions';
 import SelectStates from '../../../helpers/selectState';
 import Select from 'react-select';
 
@@ -19,10 +19,9 @@ const CreatePlaces = props => {
     
     const{register, handleSubmit, formState: { errors }} = useForm()
 
-    const onSubmit = (data, e) => {
-        let history = props.history;
+    const onSubmit = async (data, e) => {
         e.target.reset();
-        props.loginAdmin({...data, history});
+        await props.registerLocation({...data, state, municipio})
     }
 
     const handleGetStates = async () => {
@@ -37,11 +36,12 @@ const CreatePlaces = props => {
     }
 
     const selectCity = async (id) => {
+        setState(id)    /** */
         setMunicipio("")
         let data = states;
         let resulData = [];
         await data.map(x=>{
-            if(x.id===id){
+            if(x.id===id.value){    /** */
                 x.municipios.map(y=>{
                     resulData.push({ label: y.municipio, value: y.id, key: y.id})
                 })
@@ -52,13 +52,16 @@ const CreatePlaces = props => {
 
     useEffect(()=> {
         handleGetStates();
-    }, [])
-
-
-    const handleNext=()=>{
-        let {history} = props;
-        history.push('/mediclar/app/places/register-successful')
-    }
+        const {patient} = props;
+        if(patient){
+            if(patient.status===200){
+                let {history} = props;
+                history.push('/mediclar/app/places/register-successful')
+            }else{
+                console.log("Error", patient)
+            }
+        }
+    }, [props])
 
     return(
         <div className="container-primary-add">
@@ -123,7 +126,7 @@ const CreatePlaces = props => {
                                     name="Estado"
                                     options={selectState}
                                     value={state}
-                                    onChange={value=>selectCity(value.value)}
+                                    onChange={value=>selectCity(value)} /** */
                                 />
                             </div>
 
@@ -157,15 +160,23 @@ const CreatePlaces = props => {
                                 >
                                     Empresa/Hotel
                                 </label>
-                                    <select
-                                        name="Empresa/Hotel"
-                                        className="select-state"
-                                    >
-                                        <option value="">Seleccionar</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-
-                                    </select>
+                                <input
+                                    style={{
+                                        width: "214px",
+                                        height: "28px"
+                                    }}
+                                    type="text"
+                                    name="company"
+                                    autoComplete="off"
+                                    className="input-login"
+                                    placeholder="Agregar..."
+                                    {...register("company", {
+                                        required:{
+                                            value: true,
+                                            message: 'Campo Requerido'
+                                        }, 
+                                    })}
+                                />
                             </div>
 
                             <div className="container-state-city">
@@ -175,15 +186,23 @@ const CreatePlaces = props => {
                                 >
                                     Direccion
                                 </label>
-                                    <select
-                                        name="Ciudad"
-                                        className="select-city"
-                                    >
-                                        <option value="">Seleccionar</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-
-                                    </select>
+                                <input
+                                    style={{
+                                        width: "214px",
+                                        height: "28px"
+                                    }}
+                                    type="text"
+                                    name="address"
+                                    autoComplete="off"
+                                    className="input-login"
+                                    placeholder="Agregar..."
+                                    {...register("address", {
+                                        required:{
+                                            value: true,
+                                            message: 'Campo Requerido'
+                                        }, 
+                                    })}
+                                />
                             </div>
                         </div>
 
@@ -204,7 +223,7 @@ const CreatePlaces = props => {
 
 
                         <div className="container-btn">
-                            <button className="btn-login" onClick={()=> handleNext()}>ACEPTAR</button>
+                            <button className="btn-login" >ACEPTAR</button>
                         </div>
 
                     </form>
@@ -215,12 +234,14 @@ const CreatePlaces = props => {
     )
 }
 
-const mapStateToProps = ({ settings }) => {
-    return settings;
+const mapStateToProps = ({ settings, patient }) => {
+    return {settings, patient};
 }
 
 const mapDispatchToProps = dispatch => ({
-    getStates: () => dispatch(getStates())
+    getStates: () => dispatch(getStates()),
+    registerLocation: value => dispatch(registerLocation(value)),
+    cleanDataPatient: () => dispatch(cleanDataPatient())
 })
 
 export default connect(

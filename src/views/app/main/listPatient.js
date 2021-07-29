@@ -44,11 +44,12 @@ const ListPatient = (props) => {
     }
 
     const selectCity = async (id) => {
+        setState(id)    /** */
         setMunicipio("")
         let data = states;
         let resulData = [];
         await data.map(x=>{
-            if(x.id===id){
+            if(x.id===id.value){    /** */
                 x.municipios.map(y=>{
                     resulData.push({ label: y.municipio, value: y.id, key: y.id})
                 })
@@ -136,9 +137,9 @@ const ListPatient = (props) => {
                                         className="select-list-status"
                                         placeholder="Seleccionar"
                                         name="status"
-                                        options={selectState}
-                                        value={state}
-                                        onChange={value=>selectCity(value.value)}
+                                        options={city}
+                                        value={municipio}
+                                        onChange={value=>setMunicipio(value)}
                                     />
                                 </div>
 
