@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import logoMediclar from '../../../img/logo.jpg'
 import backgroundLogin from '../../../img/background-login.jpg'
 import successfull from '../../../img/successfull.jpg'
 
 import '../../../styles/addSite.css';
+import { connect } from 'react-redux';
+import {cleanDataPatient} from '../../../redux/actions';
 
 const Successful = (props) => {
+
+    useEffect(()=>{
+        props.cleanDataPatient();
+    },[])
+
     return(
             <div className="container-primary-add">
 
@@ -49,4 +56,15 @@ const Successful = (props) => {
     )
 }
 
-export default Successful;
+const mapStateToProps = ({ patient }) => {
+    return {patient};
+};
+
+const mapDispatchToProps = dispatch => ({
+    cleanDataPatient: () => dispatch(cleanDataPatient()),
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Successful);

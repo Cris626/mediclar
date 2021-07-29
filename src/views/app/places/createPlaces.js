@@ -1,7 +1,7 @@
 import React, { useState , useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { connect } from 'react-redux';
-import { getStates, registerLocation } from '../../../redux/actions';
+import { getStates, registerLocation, cleanDataPatient } from '../../../redux/actions';
 import SelectStates from '../../../helpers/selectState';
 import Select from 'react-select';
 
@@ -19,12 +19,9 @@ const CreatePlaces = props => {
     
     const{register, handleSubmit, formState: { errors }} = useForm()
 
-    const onSubmit = (data, e) => {
-        let history = props.history;
+    const onSubmit = async (data, e) => {
         e.target.reset();
-        props.registerLocation({...data, state, municipio})
-        // console.log({data, state, municipio})
-        // props.loginAdmin({...data, history});
+        await props.registerLocation({...data, state, municipio})
     }
 
     const handleGetStates = async () => {
@@ -55,13 +52,16 @@ const CreatePlaces = props => {
 
     useEffect(()=> {
         handleGetStates();
-    }, [])
-
-
-    const handleNext=()=>{
-        let {history} = props;
-        history.push('/mediclar/app/places/register-successful')
-    }
+        const {patient} = props;
+        if(patient){
+            if(patient.status===200){
+                let {history} = props;
+                history.push('/mediclar/app/places/register-successful')
+            }else{
+                console.log("Error", patient)
+            }
+        }
+    }, [props])
 
     return(
         <div className="container-primary-add">
@@ -223,8 +223,7 @@ const CreatePlaces = props => {
 
 
                         <div className="container-btn">
-                            {/* <button className="btn-login" onClick={()=> handleNext()}>ACEPTAR</button> */}
-                            <button className="btn-login">ACEPTAR</button>
+                            <button className="btn-login" >ACEPTAR</button>
                         </div>
 
                     </form>
@@ -241,7 +240,8 @@ const mapStateToProps = ({ settings, patient }) => {
 
 const mapDispatchToProps = dispatch => ({
     getStates: () => dispatch(getStates()),
-    registerLocation: value => dispatch(registerLocation(value))
+    registerLocation: value => dispatch(registerLocation(value)),
+    cleanDataPatient: () => dispatch(cleanDataPatient())
 })
 
 export default connect(

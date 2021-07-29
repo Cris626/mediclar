@@ -2,7 +2,8 @@ import axios from 'axios';
 import {
     REGISTER_PATIENT,
     GET_LOCATION,
-    REGISTER_LOCATION
+    REGISTER_LOCATION,
+    CLEAN_DATA_PATIENT
 } from '../actions';
 
 const authorizationToken = localStorage.getItem("Authorization");
@@ -81,9 +82,17 @@ const registerLocationAsync = async (data) => {
 export const registerLocation = (value) => async dispatch => {
     const { address, company, municipio, name, state } = value;
     const registerResul = await registerLocationAsync({address, company, municipio, name, state});
-    console.log(registerResul);
     return dispatch({
         type: REGISTER_LOCATION,
-        payload: value
+        payload: {...registerResul}
+    })
+}
+
+/* CLEAN_DATA_PATIENT */
+
+export const cleanDataPatient = () => async (dispatch) =>{
+    return dispatch({
+        type: CLEAN_DATA_PATIENT,
+        payload: ""
     })
 }

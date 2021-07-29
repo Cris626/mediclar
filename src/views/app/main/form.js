@@ -38,11 +38,12 @@ const Form = (props) => {
     }
 
     const selectCity = async (id) => {
+        setState(id)    /** */
         setMunicipio("")
         let data = states;
         let resulData = [];
         await data.map(x=>{
-            if(x.id===id){
+            if(x.id===id.value){    /** */
                 x.municipios.map(y=>{
                     resulData.push({ label: y.municipio, value: y.id, key: y.id})
                 })
@@ -132,7 +133,7 @@ const Form = (props) => {
                                         name="status"
                                         options={selectState}
                                         value={state}
-                                        onChange={value=>selectCity(value.value)}
+                                        onChange={value=>selectCity(value)} /** */
                                     />
 
                                 </div>
