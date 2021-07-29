@@ -32,9 +32,9 @@ const registerPatientAsync = async (data) => {
         isProcessed: 1,
         isEmailProcessed: 1,
         isSMSProcessed: 1,
-        // isWhatsappProcessed: "",
+        isWhatsappProcessed: "",
         roonNumber: "123",
-    }).then(resul=>resul.data).catch(err=>err);
+    },{headers: {'Authorization': authorizationToken}}).then(resul=>resul.data).catch(err=>err);
     console.log(resultPatient)
     return resultPatient;
 }
