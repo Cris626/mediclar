@@ -15,7 +15,7 @@ import backgroundForm from '../../../img/background-form.jpg'
 import '../../../styles/styleListPatients.css';
 
 import { connect } from 'react-redux';
-import { getLocation, getStates } from '../../../redux/actions';
+import { getLocation, getStates, deleteLocation } from '../../../redux/actions';
 import Select from 'react-select';
 
 const ListPatient = (props) => {
@@ -137,9 +137,9 @@ const ListPatient = (props) => {
                                         className="select-list-status"
                                         placeholder="Seleccionar"
                                         name="status"
-                                        options={city}
-                                        value={municipio}
-                                        onChange={value=>setMunicipio(value)}
+                                        options={selectState}
+                                        value={state}
+                                        onChange={value=>selectCity(value)}
                                     />
                                 </div>
 
@@ -189,10 +189,10 @@ const ListPatient = (props) => {
                                     <td className="tdStatus" key={x.company}>{x.company}</td>
                                     <td className="tdStatus" key={x.address}>{x.address}</td>
                                     <td className="tdStatus" key={x.id+1}>
-                                            <button key={`Button-${x.id+2}`} className="button-list">
+                                            <button className="button-list">
                                                 <FontAwesomeIcon className="icon-button-edit" icon={ faEdit }/>
                                             </button>
-                                            <button key={`Button-${x.id+3}`} className="button-list">
+                                            <button className="button-list" onClick={()=>console.log("SSSSSS")}>
                                                 <FontAwesomeIcon className="icon-button-delet" icon={ faTrashAlt }/>
                                             </button>
                                     </td>
@@ -222,7 +222,8 @@ const mapStateToProps = ({patient, settings}) => {
 
 const mapDispatchToProps = dispatch => ({
     getLocation: () => dispatch(getLocation()),
-    getStates: () => dispatch(getStates())
+    getStates: () => dispatch(getStates()),
+    deleteLocation: value => dispatch(deleteLocation())
 })
 
 export default connect(

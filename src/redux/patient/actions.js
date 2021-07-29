@@ -3,7 +3,8 @@ import {
     REGISTER_PATIENT,
     GET_LOCATION,
     REGISTER_LOCATION,
-    CLEAN_DATA_PATIENT
+    CLEAN_DATA_PATIENT,
+    DELETE_LOCATION
 } from '../actions';
 
 const authorizationToken = localStorage.getItem("Authorization");
@@ -85,6 +86,16 @@ export const registerLocation = (value) => async dispatch => {
     return dispatch({
         type: REGISTER_LOCATION,
         payload: {...registerResul}
+    })
+}
+
+/* DELETE_LOCATION */
+
+export const deleteLocation = value => async dispatch => {
+    console.log(value)
+    return dispatch({
+        type: DELETE_LOCATION,
+        payload: {...value}
     })
 }
 
