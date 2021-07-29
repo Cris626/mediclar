@@ -1,6 +1,8 @@
 import React from 'react';
 import IntlMessages from '../../../helpers/IntlMessages';
 
+import { DatePicker } from 'antd';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
@@ -17,6 +19,7 @@ import logoMediclarForm from '../../../img/logoForm.jpg'
 import backgroundForm from '../../../img/background-form.jpg'
 
 import '../../../styles/styleFormRegister.css';
+import 'antd/dist/antd.css'; 
 
 const Result = (props) => {
 
@@ -263,35 +266,24 @@ const Result = (props) => {
                                     >
                                         <IntlMessages id="form.date-of-birth"/><span className="required-label">*</span>
                                     </label>
-
-                                    <input
-                                        type="text"
-                                        name="birth"
-                                        autoComplete="off"
-                                        className="input-register-birth"
-                                        placeholder="DD/MM/YYYY"
-
-                                        {...register("birth", {
-                                            required:{
-                                                value: true,
-                                                message: 'Campo Requerido'
-                                            }, 
-
-                                            maxLength:{
-                                                value: 10,
-                                                message: 'Maximo 10 Caracteres'
-                                            },
-                        
-                                            minLength:{
-                                                value: 2,
-                                                message: 'Minimo 2 Caracteres'
-                                            },
-                        
-                                        })}
-                                    />
-                                    <span className="error-message">
-                                        {errors.secondSurname && errors.secondSurname.message}
-                                    </span>
+                                    
+                                    <div className="container-register-birth">
+                                        <DatePicker 
+                                            name="birth"
+                                            className="input-register-birth"
+                                            placeholder="DD/MM/YYYY"
+                                            {...register("birth", {
+                                                required:{
+                                                    value: true,
+                                                    message: 'Campo Requerido'
+                                                }, 
+                            
+                                            })}
+                                        />
+                                    </div>
+                                        <span className="error-message">
+                                            {errors.birth && errors.birth.message}
+                                        </span>
                                 </div>
 
 
@@ -533,12 +525,12 @@ const Result = (props) => {
 
                             <div className="container-block-register">
 
-                                <div className="container-register">
+                                <div className="container-register-result">
 
 
-                                    <div className="container-phone-register-primary">
+                                    <div className="container-phone-register-primary-result">
 
-                                        <div className="container-register-code">
+                                        <div className="container-register-code-result">
 
                                             <label
                                                 htmlFor="codeArea" 
@@ -549,7 +541,7 @@ const Result = (props) => {
 
                                             <select
                                                 name="codeArea"
-                                                    className="input-register-phone"
+                                                    className="input-register-code-result"
                                                     {...register("codeArea", { 
                                                         required:{
                                                         message: 'Campo Requerido' 
@@ -579,7 +571,7 @@ const Result = (props) => {
                                             </span>
                                         </div>
 
-                                        <div className="container-register-phone">
+                                        <div className="container-register-phone-result">
 
                                             
                                             <label
@@ -594,7 +586,7 @@ const Result = (props) => {
                                                 type="text"
                                                 name="phone"
                                                 autoComplete="off"
-                                                className="input-register-phone"
+                                                className="input-register-phone-result"
                                                 placeholder="000 00 0000 0000"
 
                                                 {...register("phone", {
@@ -633,7 +625,7 @@ const Result = (props) => {
 
 
 
-                                <div className="container-motive-proof-register">
+                                <div className="container-motive-proof-register-result">
 
                                     <p className="title-motive-proof"><IntlMessages id="form.test-reason"/><span className="required-label">*</span></p>
                                              
@@ -662,7 +654,7 @@ const Result = (props) => {
                                 </div> 
 
 
-                                <div className="container-motive-proof-register">
+                                <div className="container-motive-proof-register-result">
 
                                     <p className="title-motive-proof"><IntlMessages id="form.control"/><span className="required-label">*</span></p>
                                             
@@ -920,7 +912,6 @@ const Result = (props) => {
 
                                         })}
                                     />
-
                                 </div>
 
 
@@ -932,33 +923,23 @@ const Result = (props) => {
                                     >
                                         <IntlMessages id="form.date"/><span className="required-label">*</span>
                                     </label>
-                                    <input
-                                        type="text"
-                                        name="date"
-                                        autoComplete="off"
-                                        className="input-register-confirm-date"
-                                        placeholder="DD/MM/YYYY"
-                                        
-
-                                        {...register("date", {
-                                            required:{
-                                                value: true,
-                                                message: 'Campo Requerido'
-                                            }, 
-
-                                            maxLength:{
-                                                value: 10,
-                                                message: 'Maximo 10 Caracteres'
-                                            },
-
-                                            minLength:{
-                                                value: 10,
-                                                message: 'Minimo 10 Caracteres'
-                                            },
-
-                                        })}
-                                    />
-
+                                    <div className="container-register-birth">
+                                        <DatePicker 
+                                            name="date"
+                                            className="input-register-confirm-date"
+                                            placeholder="DD/MM/YYYY"
+                                            {...register("date", {
+                                                required:{
+                                                    value: true,
+                                                    message: 'Campo Requerido'
+                                                }, 
+                            
+                                            })}
+                                        />
+                                    </div>
+                                        <span className="error-message">
+                                            {errors.date && errors.date.message}
+                                        </span>
                                 </div>  
 
                             </div>
