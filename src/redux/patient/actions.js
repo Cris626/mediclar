@@ -74,7 +74,7 @@ const registerLocationAsync = async (data) => {
         cityId: data.municipio.value,
         company: data.company,
         address: data.address,
-    },{headers: {authorizationToken}}).then(result => result.data).catch(err=>err);
+    },{headers: {'Authorization': authorizationToken}}).then(result => result.data).catch(err=>err);
     return resultRegister;
 }
 
