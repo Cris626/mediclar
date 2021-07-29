@@ -233,8 +233,22 @@
 
 
 .container-motive-proof-register-result{
-    background-color: #AF0087;
+    margin-top: 20px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-control-proof-register-result{
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-test-type-register-result{
+    width: 35%;
+    margin-left: 35px;
     display: flex;
     flex-direction: column;
 }

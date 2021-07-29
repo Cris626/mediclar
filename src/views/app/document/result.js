@@ -654,7 +654,7 @@ const Result = (props) => {
                                 </div> 
 
 
-                                <div className="container-motive-proof-register-result">
+                                <div className="container-control-proof-register-result">
 
                                     <p className="title-motive-proof"><IntlMessages id="form.control"/><span className="required-label">*</span></p>
                                             
@@ -687,7 +687,7 @@ const Result = (props) => {
 
 
 
-                            <div className="container-test-type-register">
+                            <div className="container-test-type-register-result">
 
                                 <p className="title-motive-proof"><IntlMessages id="form.test-type"/><span className="required-label">*</span></p>
                                             
