@@ -15,7 +15,7 @@ import backgroundForm from '../../../img/background-form.jpg'
 import '../../../styles/styleListPatients.css';
 
 import { connect } from 'react-redux';
-import { getLocation, getStates } from '../../../redux/actions';
+import { getLocation, getStates, deleteLocation } from '../../../redux/actions';
 import Select from 'react-select';
 
 const ListPatient = (props) => {
@@ -58,10 +58,14 @@ const ListPatient = (props) => {
         setCity(resulData);
     }
 
+    const handleDeleteLocation = id => {
+        props.deleteLocation(id);
+    }
+
     useEffect(()=>{
         handleGetStates();
         handleGetLocations();
-    }, [])
+    }, [props])
 
     return(
         <div className="container-status-primary">
@@ -137,9 +141,9 @@ const ListPatient = (props) => {
                                         className="select-list-status"
                                         placeholder="Seleccionar"
                                         name="status"
-                                        options={city}
-                                        value={municipio}
-                                        onChange={value=>setMunicipio(value)}
+                                        options={selectState}
+                                        value={state}
+                                        onChange={value=>selectCity(value)}
                                     />
                                 </div>
 
@@ -184,15 +188,15 @@ const ListPatient = (props) => {
                             {locations!==undefined?locations.map(x=>{
                                 return <tr key={x.id}>
                                     <td className="tdStatus" key={x.name}>{x.name}</td>
-                                    <td className="tdStatus" key={x.city.estado[0].estado}>{x.city.estado[0].estado}</td>
-                                    <td className="tdStatus" key={x.city.municipio}>{x.city.municipio}</td>
+                                    <td className="tdStatus" key={x.city.estado[0].estado+0}>{x.city.estado[0].estado}</td>
+                                    <td className="tdStatus" key={x.city.municipio+1}>{x.city.municipio}</td>
                                     <td className="tdStatus" key={x.company}>{x.company}</td>
                                     <td className="tdStatus" key={x.address}>{x.address}</td>
                                     <td className="tdStatus" key={x.id+1}>
-                                            <button key={`Button-${x.id+2}`} className="button-list">
+                                            <button className="button-list">
                                                 <FontAwesomeIcon className="icon-button-edit" icon={ faEdit }/>
                                             </button>
-                                            <button key={`Button-${x.id+3}`} className="button-list">
+                                            <button className="button-list" onClick={()=>handleDeleteLocation(x.id)}>
                                                 <FontAwesomeIcon className="icon-button-delet" icon={ faTrashAlt }/>
                                             </button>
                                     </td>
@@ -222,7 +226,8 @@ const mapStateToProps = ({patient, settings}) => {
 
 const mapDispatchToProps = dispatch => ({
     getLocation: () => dispatch(getLocation()),
-    getStates: () => dispatch(getStates())
+    getStates: () => dispatch(getStates()),
+    deleteLocation: value => dispatch(deleteLocation(value))
 })
 
 export default connect(

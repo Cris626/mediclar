@@ -3,7 +3,8 @@ import {
     REGISTER_PATIENT,
     GET_LOCATION,
     REGISTER_LOCATION,
-    CLEAN_DATA_PATIENT
+    CLEAN_DATA_PATIENT,
+    DELETE_LOCATION
 } from '../actions';
 
 const authorizationToken = localStorage.getItem("Authorization");
@@ -85,6 +86,23 @@ export const registerLocation = (value) => async dispatch => {
     return dispatch({
         type: REGISTER_LOCATION,
         payload: {...registerResul}
+    })
+}
+
+/* DELETE_LOCATION */
+
+const deleteLocationAsync = async (data) => {
+    let result = await axios.post('https://sleepy-turing.50-21-189-39.plesk.page/api/v1/locations/delete-location-by-id', {
+        id: data
+    }, {headers: {'Authorization': authorizationToken}}).then(result=>result.data).catch(err=>err)
+    return result;
+}
+
+export const deleteLocation = value => async dispatch => {
+    let resultDelete = await deleteLocationAsync(value);
+    return dispatch({
+        type: DELETE_LOCATION,
+        payload: {...resultDelete}
     })
 }
 
