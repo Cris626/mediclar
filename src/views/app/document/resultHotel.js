@@ -24,7 +24,6 @@ const ResultHotel = (props) => {
 
     const onSubmit = (data, e) => {
         e.target.reset()
-        // console.log(data)
         props.registerPatient(data);
     }
 

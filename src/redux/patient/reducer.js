@@ -8,7 +8,6 @@ import {
 const initialState = {}
 
 let reducer = ( state = initialState, action) => {
-    console.log(action.type)
     switch (action.type) {
         case REGISTER_PATIENT:
             return { ...state, ...action.payload };
