@@ -179,6 +179,90 @@
     flex-direction: column;
 }
 
+.container-register-result{
+    width: 100%;
+    margin-left: 32px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.container-phone-register-primary-result{
+    width: 100%;
+    
+    display: flex;
+}
+
+.container-register-code-result{
+    width: 90px;
+    margin-right: 10px;
+}
+
+.container-register-phone-result{
+    margin-top: 19px;
+    width: 77%;
+}
+
+
+.input-register-code-result{
+    border: none;
+    border: solid 1px #ADADAD;
+    border-radius: 5px;
+    font-size: 18px;    
+    outline: 0 none;
+    width: 90%;
+    height: 45px;
+    margin-top: 6px;
+    transition-duration: 0.3s;
+}
+
+.input-register-phone-result{
+    border: none;
+    border: solid 1px #ADADAD;
+    border-radius: 5px;
+    font-size: 18px;    
+    outline: 0 none;
+    width: 90%;
+    height: 45px;
+    margin-top: 10px;
+    transition-duration: 0.3s;
+}
+
+
+
+.container-motive-proof-register-result{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-control-proof-register-result{
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-test-type-register-result{
+    width: 35%;
+    margin-left: 35px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
 .container-block-register-motive-proof{
     width: 100%;
     margin-top: 35px;
@@ -235,14 +319,31 @@
 }
 
 
+.container-register-birth{
+    margin-top: 10px;
+}
 
+.input-register-birth{
+    border: none;
+    border: solid 1px #ADADAD;  
+    outline: 0 none;
+    width: 90%;
+    height: 40px;
+    transition-duration: 0.3s;
+}
 
-
+.input-register-confirm-date{
+    border: none;
+    border: solid 1px #ADADAD;  
+    outline: 0 none;
+    width: 300px;
+    height: 40px;
+    transition-duration: 0.3s;
+}
 
 .input-register-name, 
 .input-register-surname,
-.input-register-second-surname,
-.input-register-birth, 
+.input-register-second-surname, 
 .input-register-curp,
 .input-register-gender,
 .input-register-passport,
@@ -251,8 +352,7 @@
 .input-register-confirm-email,
 .input-register-hotel,
 .input-register-room,
-.input-register-confirm-name-passer,
-.input-register-confirm-date
+.input-register-confirm-name-passer
 {
     border: none;
     border: solid 1px #ADADAD;
@@ -317,6 +417,12 @@
     display: flex;
 
 }
+
+
+
+
+
+
 
 .container-register-code{
     width: 90px;
@@ -550,6 +656,12 @@
     .container-register{
         width: 100%;
     }
+
+    .container-register-result{
+        width: 100%;
+    }
+
+    result
 
     .container-phone-register-primary{
         margin-left: 20px;
