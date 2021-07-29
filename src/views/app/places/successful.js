@@ -14,6 +14,11 @@ const Successful = (props) => {
         props.cleanDataPatient();
     },[])
 
+    const handleAccept = () => {
+        const { history } = props;
+        history.push('/mediclar/app/places/register');
+    }
+
     return(
             <div className="container-primary-add">
 
@@ -45,7 +50,7 @@ const Successful = (props) => {
                         </div>
 
                         <div className="container-btn">
-                            <button className="btn-login">ACEPTAR</button>
+                            <button className="btn-login" onClick={()=>handleAccept()}>ACEPTAR</button>
                         </div>
 
                     </div>
@@ -56,8 +61,8 @@ const Successful = (props) => {
     )
 }
 
-const mapStateToProps = ({ patient }) => {
-    return {patient};
+const mapStateToProps = () => {
+    return {};
 };
 
 const mapDispatchToProps = dispatch => ({
