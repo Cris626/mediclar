@@ -91,11 +91,18 @@ export const registerLocation = (value) => async dispatch => {
 
 /* DELETE_LOCATION */
 
+const deleteLocationAsync = async (data) => {
+    let result = await axios.post('https://sleepy-turing.50-21-189-39.plesk.page/api/v1/locations/delete-location-by-id', {
+        id: data
+    }, {headers: {'Authorization': authorizationToken}}).then(result=>result.data).catch(err=>err)
+    return result;
+}
+
 export const deleteLocation = value => async dispatch => {
-    console.log(value)
+    let resultDelete = await deleteLocationAsync(value);
     return dispatch({
         type: DELETE_LOCATION,
-        payload: {...value}
+        payload: {...resultDelete}
     })
 }
 
