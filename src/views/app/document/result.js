@@ -24,7 +24,6 @@ const Result = (props) => {
 
     const onSubmit = (data, e) => {
         e.target.reset()
-        // console.log(data)
         props.registerPatient(data);
     }
            
@@ -53,10 +52,10 @@ const Result = (props) => {
                     <p>info@mediclarlab.com</p>
                 </div>
 
-                <div className="icon-mail">
-                    <FontAwesomeIcon className="icon-style" icon={ ['fab','instagram'] }/>
+                {/* <div className="icon-mail">
+                    <FontAwesomeIcon className="icon-style" icon={ faInstagram }/>
                     <p>mediclar_lab</p>
-                </div>
+                </div> */}
 
                 <div className="icon-phone">
                     <FontAwesomeIcon className="icon-style" icon={ faPhoneSquareAlt }/>

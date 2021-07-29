@@ -7,11 +7,44 @@ import {
 
 const authorizationToken = localStorage.getItem("Authorization");
 
-export const registerPatient = value => {
-    return {
+/* REGISTER_PATIENT */
+
+const registerPatientAsync = async (data) => {
+    let resultPatient = await axios.post('https://sleepy-turing.50-21-189-39.plesk.page/api/v1/locations/upsert-location',{
+        locationId: 1111,
+        name: data.name,
+        firstLastName: data.surname,
+        secondLastName: data.secondSurname,
+        dob: data.birth,
+        curp: data.curp,
+        gender: data.gender,
+        passport: data.passport,
+        email: data.email,
+        phoneLada: data.codeArea,
+        phone: data.phone,
+        testReason: "trip",
+        testControl: "school",
+        inAntigen: 0,
+        isPCR: 1,
+        isAntibody: 1,
+        isHotel: 0,
+        isProcessed: 1,
+        isEmailProcessed: 1,
+        isSMSProcessed: 1,
+        // isWhatsappProcessed: "",
+        roonNumber: "123",
+    }).then(resul=>resul.data).catch(err=>err);
+    console.log(resultPatient)
+    return resultPatient;
+}
+
+export const registerPatient = value => async dispatch => {
+    const register = await registerPatientAsync(value)
+    console.log(register)
+    return dispatch({
         type: REGISTER_PATIENT,
-        payload: { ...value }
-    }
+        payload: { register }
+    })
 }
 
 /* GET LOCATION */
