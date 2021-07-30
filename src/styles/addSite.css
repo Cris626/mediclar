@@ -27,6 +27,7 @@
 .container-login-primary-add{
     width: 100%;
     height: 100%;
+    
 
     display: flex;
     align-items: center;
@@ -36,7 +37,7 @@
 }
 
 .container-login-add{
-    background-color: #FFFFFF;
+    background-color: #ffffff4f;
     border: #535353 solid 1px;
     border-radius: 9px;
     padding-top: 85px;
@@ -54,19 +55,22 @@
     justify-content: center;
     z-index: 3;
 }
+
+
+
 
 .container-login-successful-primary{
     background-color: #FFFFFF;
     border: #535353 solid 1px;
     border-radius: 9px;
-    padding-top: 85px;
+    padding-top: 105px;
     padding-bottom: 35px;
     width: 540px;
-    height: 450px;
+    height: auto;
 
     
     position: relative;
-    bottom: 45px;
+    bottom: 35px;
     left: 0px;
 
     display: flex;
@@ -75,6 +79,61 @@
     z-index: 3;
 }
 
+.container-logo{
+    background-color: #a01f83;
+    width: 360px;
+    height: auto;
+    /* margin-top: 150px; */
+
+    position: relative;
+    top: 50px;
+    left: 0px;
+
+    z-index: 4;
+}
+
+
+.container-login-successful-primary-register{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 30px;
+    font-size: 18px;
+    display: flex;
+}
+
+.container-login-successful-primary-prueba{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    margin-top: 30px;
+    font-size: 18px;
+    
+    display: flex;
+
+}   
+
+
+.container-pre-data-prueba{
+    background-color: #707070;
+    color: white;
+    width: 100%;
+    height: 35px;
+    border-bottom: solid 2px #cccbcb;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-pre-data{
+    width: 100%;
+    border-bottom: solid 2px #cccbcb;
+    padding-bottom: 10px;
+    display: flex;
+}
+
+.pre-data{
+    margin-right: 15px;
+    color: #a01f83;
+}
 
 .container-title-successful{
     font-size: 20px;
@@ -89,21 +148,18 @@
     width: 170px;
 }
 
-
-
-
-.container-logo{
-    background-color: #a01f83;
-    width: 360px;
-    height: auto;
-    margin-top: 150px;
-
-    position: relative;
-    top: 45px;
-    left: 0px;
-
-    z-index: 4;
+.container-img-successful-register{
+    text-align: center;
 }
+
+.container-img-successful-register img{
+    width: 100px;
+}
+
+
+
+
+
 
 .session-title{
     color: #5e5e5e;
