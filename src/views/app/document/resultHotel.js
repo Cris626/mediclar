@@ -1,6 +1,9 @@
 import React from 'react';
 import IntlMessages from '../../../helpers/IntlMessages';
 
+import { DatePicker } from 'antd';
+import locale from 'antd/es/date-picker/locale/es_ES'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
@@ -17,6 +20,7 @@ import logoMediclarForm from '../../../img/logoForm.jpg'
 import backgroundForm from '../../../img/background-form.jpg'
 
 import '../../../styles/styleFormRegister.css';
+import 'antd/dist/antd.css';
 
 const ResultHotel = (props) => {
 
@@ -52,7 +56,7 @@ const ResultHotel = (props) => {
                 </div>
 
                 <div className="icon-mail">
-                    <FontAwesomeIcon className="icon-style" icon={ ['fab','instagram'] }/>
+                    {/* <FontAwesomeIcon className="icon-style" icon={ ['fab','instagram'] }/> */}
                     <p>mediclar_lab</p>
                 </div>
 
@@ -262,33 +266,23 @@ const ResultHotel = (props) => {
                                         <IntlMessages id="form.date-of-birth"/><span className="required-label">*</span>
                                     </label>
 
-                                    <input
-                                        type="text"
-                                        name="birth"
-                                        autoComplete="off"
-                                        className="input-register-birth"
-                                        placeholder="DD/MM/YYYY"
-
-                                        {...register("birth", {
-                                            required:{
-                                                value: true,
-                                                message: 'Campo Requerido'
-                                            }, 
-
-                                            maxLength:{
-                                                value: 10,
-                                                message: 'Maximo 10 Caracteres'
-                                            },
-                        
-                                            minLength:{
-                                                value: 2,
-                                                message: 'Minimo 2 Caracteres'
-                                            },
-                        
-                                        })}
-                                    />
+                                        <div className="container-register-birth">
+                                            <DatePicker 
+                                                locale={locale}
+                                                name="birth"
+                                                className="input-register-birth"
+                                                placeholder="DD/MM/YYYY"
+                                                {...register("birth", {
+                                                    required:{
+                                                        value: true,
+                                                        message: 'Campo Requerido'
+                                                    }, 
+                                                    
+                                                })}
+                                            />
+                                        </div>
                                     <span className="error-message">
-                                        {errors.secondSurname && errors.secondSurname.message}
+                                        {errors.birth && errors.birth.message}
                                     </span>
                                 </div>
 
@@ -720,7 +714,7 @@ const ResultHotel = (props) => {
                                             <div>
                                                 <input
                                                     type= "radio"
-                                                    value="I will travel"
+                                                    value="trip"
                                                     name="motive"
                                                 />
                                                 <label className="label-control"><IntlMessages id="form.test-reason.option.first"/></label>
@@ -729,7 +723,7 @@ const ResultHotel = (props) => {
                                             <div>
                                                 <input
                                                     type= "radio"
-                                                    value="I have symptoms"
+                                                    value="symptoms"
                                                     name="motive"
                                                 />
                                                 <label className="label-control"><IntlMessages id="form.test-reason.option.second"/></label>
@@ -783,7 +777,7 @@ const ResultHotel = (props) => {
                                         <div>
                                             <input
                                                 type= "radio"
-                                                value="Antigen"
+                                                value="0"
                                                 name="test"
                                             />
                                             <label className="label-control"><IntlMessages id="form.test-type.option.first"/></label>
@@ -792,7 +786,7 @@ const ResultHotel = (props) => {
                                         <div>
                                             <input
                                                 type= "radio"
-                                                value="PCR"
+                                                value="1"
                                                 name="test"
                                             />
                                             <label className="label-control"><IntlMessages id="form.test-type.option.second"/></label>
@@ -801,7 +795,7 @@ const ResultHotel = (props) => {
                                         <div>
                                             <input
                                                 type= "radio"
-                                                value="Antibody"
+                                                value="1"
                                                 name="test"
                                             />
                                             <label className="label-control"><IntlMessages id="form.test-type.option.third"/></label>
@@ -1012,32 +1006,24 @@ const ResultHotel = (props) => {
                                     >
                                         <IntlMessages id="form.date"/><span className="required-label">*</span>
                                     </label>
-                                    <input
-                                        type="text"
-                                        name="date"
-                                        autoComplete="off"
-                                        className="input-register-confirm-date"
-                                        placeholder="DD/MM/YYYY"
-                                        
-
-                                        {...register("date", {
-                                            required:{
-                                                value: true,
-                                                message: 'Campo Requerido'
-                                            }, 
-
-                                            maxLength:{
-                                                value: 10,
-                                                message: 'Maximo 10 Caracteres'
-                                            },
-
-                                            minLength:{
-                                                value: 10,
-                                                message: 'Minimo 10 Caracteres'
-                                            },
-
-                                        })}
-                                    />
+                                    <div className="container-register-birth">
+                                        <DatePicker 
+                                            locale={locale}
+                                            name="date"
+                                            className="input-register-confirm-date"
+                                            placeholder="DD/MM/YYYY"
+                                            {...register("date", {
+                                                required:{
+                                                    value: true,
+                                                    message: 'Campo Requerido'
+                                                }, 
+                            
+                                            })}
+                                        />
+                                    </div>
+                                        <span className="error-message">
+                                            {errors.date && errors.date.message}
+                                        </span>
 
                                 </div>  
 

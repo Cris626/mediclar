@@ -2,6 +2,8 @@ import React from 'react';
 import IntlMessages from '../../../helpers/IntlMessages';
 
 import { DatePicker } from 'antd';
+import locale from 'antd/es/date-picker/locale/es_ES'
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
@@ -253,9 +255,6 @@ const Result = (props) => {
 
 
 
-
-
-
                             <div className="container-block-register">
 
                                 <div className="container-register">
@@ -268,6 +267,7 @@ const Result = (props) => {
                                     
                                     <div className="container-register-birth">
                                         <DatePicker 
+                                            locale={locale}
                                             name="birth"
                                             className="input-register-birth"
                                             placeholder="DD/MM/YYYY"
@@ -276,7 +276,7 @@ const Result = (props) => {
                                                     value: true,
                                                     message: 'Campo Requerido'
                                                 }, 
-                            
+                                                
                                             })}
                                         />
                                     </div>
@@ -633,7 +633,7 @@ const Result = (props) => {
                                         <div>
                                             <input
                                                 type= "radio"
-                                                value="I will travel"
+                                                value="trip"
                                                 name="motive"
                                             />
                                             <label className="label-control"><IntlMessages id="form.test-reason.option.first"/></label>
@@ -642,7 +642,7 @@ const Result = (props) => {
                                         <div>
                                             <input
                                                 type= "radio"
-                                                value="I have symptoms"
+                                                value="symptoms"
                                                 name="motive"
                                             />
                                             <label className="label-control"><IntlMessages id="form.test-reason.option.second"/></label>
@@ -695,7 +695,7 @@ const Result = (props) => {
                                     <div>
                                         <input
                                             type= "radio"
-                                            value="Antigen"
+                                            value="0"
                                             name="test"
                                         />
                                         <label className="label-control"><IntlMessages id="form.test-type.option.first"/></label>
@@ -704,7 +704,7 @@ const Result = (props) => {
                                     <div>
                                         <input
                                             type= "radio"
-                                            value="PCR"
+                                            value="1"
                                             name="test"
                                         />
                                         <label className="label-control"><IntlMessages id="form.test-type.option.second"/></label>
@@ -713,7 +713,7 @@ const Result = (props) => {
                                     <div>
                                         <input
                                             type= "radio"
-                                            value="Antibody"
+                                            value="1"
                                             name="test"
                                         />
                                         <label className="label-control"><IntlMessages id="form.test-type.option.third"/></label>
@@ -924,6 +924,7 @@ const Result = (props) => {
                                     </label>
                                     <div className="container-register-birth">
                                         <DatePicker 
+                                            locale={locale}
                                             name="date"
                                             className="input-register-confirm-date"
                                             placeholder="DD/MM/YYYY"
