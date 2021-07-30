@@ -11,13 +11,14 @@ const authorizationToken = localStorage.getItem("Authorization");
 
 /* REGISTER_PATIENT */
 
-const registerPatientAsync = async (data) => {
+const registerPatientAsync = async (value) => {
+    const {data, birth, date} = value;
     let resultPatient = await axios.post('https://sleepy-turing.50-21-189-39.plesk.page/api/v1/locations/upsert-location',{
         locationId: 1111,
         name: data.name,
         firstLastName: data.surname,
         secondLastName: data.secondSurname,
-        dob: data.birth,
+        dob: birth,
         curp: data.curp,
         gender: data.gender,
         passport: data.passport,
@@ -36,7 +37,6 @@ const registerPatientAsync = async (data) => {
         isWhatsappProcessed: "",
         roonNumber: "123",
     },{headers: {'Authorization': authorizationToken}}).then(resul=>resul.data).catch(err=>err);
-    console.log(resultPatient)
     return resultPatient;
 }
 

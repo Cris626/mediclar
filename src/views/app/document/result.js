@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState ,useEffect } from 'react';
 import IntlMessages from '../../../helpers/IntlMessages';
 
 import { DatePicker } from 'antd';
@@ -24,13 +24,33 @@ import '../../../styles/styleFormRegister.css';
 import 'antd/dist/antd.css'; 
 
 const Result = (props) => {
+    const [birth, setBirth] = useState();
+    const [date, setDate] = useState();
 
     const{register, handleSubmit, formState: { errors }} = useForm()
 
+    const handleDate = data => {
+        let date = new Date(data._d)
+        let resultDate = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
+        return resultDate;
+    }
+
     const onSubmit = (data, e) => {
         e.target.reset()
-        props.registerPatient(data);
+        props.registerPatient({data, birth, date});
     }
+
+    useEffect(()=>{
+        const { patient, history } = props;
+        const { register } = patient;
+        if(register){
+            if(register.status===200){
+                history.push('/mediclar/app/result-document/success-register');
+            }else{
+                console.log('error')
+            }
+        }
+    },[props])
 
     return(
         <div className="container-register-primary">
@@ -270,10 +290,7 @@ const Result = (props) => {
                                             name="birth"
                                             className="input-register-birth"
                                             placeholder="DD/MM/YYYY"
-                                            onChange={(date) => {
-                                                console.log(date);
-                                              }
-                                            }
+                                            onChange={(date) => setBirth(handleDate(date))}
                                         />
                                     </div>
                                         <span className="error-message">
@@ -924,10 +941,7 @@ const Result = (props) => {
                                             name="date"
                                             className="input-register-confirm-date"
                                             placeholder="DD/MM/YYYY"
-                                            onChange={(date) => {
-                                                console.log(date);
-                                              }
-                                            }
+                                            onChange={(date) => setDate(handleDate(date))}
                                         />
                                         
                                     </div>
