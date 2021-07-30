@@ -31,10 +31,10 @@ const registerPatientAsync = async (value) => {
         isPCR: 1,
         isAntibody: 1,
         isHotel: 0,
-        isProcessed: 1,
-        isEmailProcessed: 1,
-        isSMSProcessed: 1,
-        isWhatsappProcessed: "",
+        isProcessed: 0,
+        isEmailProcessed: 0,
+        isSMSProcessed: 0,
+        isWhatsappProcessed: 0,
         roonNumber: "123",
     },{headers: {'Authorization': authorizationToken}}).then(resul=>resul.data).catch(err=>err);
     return resultPatient;
