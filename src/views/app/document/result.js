@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import IntlMessages from '../../../helpers/IntlMessages';
 
 import { DatePicker } from 'antd';
@@ -31,7 +31,6 @@ const Result = (props) => {
         e.target.reset()
         props.registerPatient(data);
     }
-           
 
     return(
         <div className="container-register-primary">
@@ -266,7 +265,7 @@ const Result = (props) => {
                                     </label>
                                     
                                     <div className="container-register-birth">
-                                        <DatePicker 
+                                        {/* <DatePicker 
                                             locale={locale}
                                             name="birth"
                                             className="input-register-birth"
@@ -277,6 +276,31 @@ const Result = (props) => {
                                                     message: 'Campo Requerido'
                                                 }, 
                                                 
+                                            })}
+                                        /> */}
+                                        <input
+                                            type="text"
+                                            name="birth"
+                                            autoComplete="off"
+                                            className="input-register-second-surname"
+                                            placeholder="Agregar..."
+
+                                            {...register("birth", {
+                                                required:{
+                                                    value: true,
+                                                    message: 'Campo Requerido'
+                                                }, 
+
+                                                maxLength:{
+                                                    value: 15,
+                                                    message: 'Maximo 15 Caracteres'
+                                                },
+
+                                                minLength:{
+                                                    value: 4,
+                                                    message: 'Minimo 4 Caracteres'
+                                                },
+
                                             })}
                                         />
                                     </div>
@@ -923,7 +947,7 @@ const Result = (props) => {
                                         <IntlMessages id="form.date"/><span className="required-label">*</span>
                                     </label>
                                     <div className="container-register-birth">
-                                        <DatePicker 
+                                        {/* <DatePicker 
                                             locale={locale}
                                             name="date"
                                             className="input-register-confirm-date"
@@ -935,7 +959,33 @@ const Result = (props) => {
                                                 }, 
                             
                                             })}
+                                        /> */}
+                                        <input
+                                            type="text"
+                                            name="date"
+                                            autoComplete="off"
+                                            className="input-register-confirm-name-passer"
+                                            
+
+                                            {...register("date", {
+                                                required:{
+                                                    value: true,
+                                                    message: 'Campo Requerido'
+                                                }, 
+
+                                                maxLength:{
+                                                    value: 15,
+                                                    message: 'Maximo 15 Caracteres'
+                                                },
+
+                                                minLength:{
+                                                    value: 4,
+                                                    message: 'Minimo 4 Caracteres'
+                                                },
+
+                                            })}
                                         />
+                                        
                                     </div>
                                         <span className="error-message">
                                             {errors.date && errors.date.message}
