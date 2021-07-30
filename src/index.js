@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { Provider } from 'react-redux';
 import { configureStore } from './redux/store';
+import Screen from './helpers/screen';
 
 ReactDOM.render(
   <Provider store={configureStore()}>
-    <Suspense fallback={<h1>___LOADING___</h1>}>
+    <Suspense fallback={<Screen />}>
       <App/>
     </Suspense>
   </Provider>,

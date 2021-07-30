@@ -38,7 +38,7 @@ const Result = (props) => {
     const onSubmit = (data, e) => {
         e.target.reset()
         console.log(data)
-        // props.registerPatient({data, birth, date});
+        props.registerPatient({data, birth, date});
     }
 
     useEffect(()=>{

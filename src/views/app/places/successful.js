@@ -16,7 +16,7 @@ const Successful = (props) => {
 
     const handleAccept = () => {
         const { history } = props;
-        history.push('/mediclar/app/places/register');
+        history.push('/mediclar/app/form-main/patient-list');
     }
 
     return(
