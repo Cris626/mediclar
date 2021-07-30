@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import logoMediclar from '../../../img/logo.jpg'
 import backgroundLogin from '../../../img/background-login.jpg'
@@ -8,12 +8,6 @@ import '../../../styles/addSite.css';
 import { connect } from 'react-redux';
 
 const SuccessRegister = props => {
-    const [data, setData] = useState();
-
-    useEffect(()=>{
-        const {patient} = props;
-        setData(patient);
-    }, [])
 
     return (
         <div className="container-primary-add">
