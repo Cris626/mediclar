@@ -5,6 +5,8 @@ const Result = React.lazy(()=> import('./result'));
 
 const ResultHotel = React.lazy(()=> import('./resultHotel'));
 
+const SuccessRegister = React.lazy(()=> import('./successRegister'));
+
 const Document = ({ match }) => (
     <Switch>
         <Route
@@ -16,6 +18,11 @@ const Document = ({ match }) => (
             exact
             path={`${match.url}/hotel`}
             render={props=><ResultHotel {...props} />}
+        />
+        <Route 
+            exact
+            path={`${match.url}/success-register`}
+            render={props=><SuccessRegister {...props}/>}
         />
     </Switch>
 )
