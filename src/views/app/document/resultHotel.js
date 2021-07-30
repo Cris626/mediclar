@@ -268,17 +268,14 @@ const ResultHotel = (props) => {
 
                                         <div className="container-register-birth">
                                             <DatePicker 
+                                                onChange={(date) => {
+                                                    console.log(date);
+                                                    }
+                                                }
                                                 locale={locale}
                                                 name="birth"
                                                 className="input-register-birth"
                                                 placeholder="DD/MM/YYYY"
-                                                {...register("birth", {
-                                                    required:{
-                                                        value: true,
-                                                        message: 'Campo Requerido'
-                                                    }, 
-                                                    
-                                                })}
                                             />
                                         </div>
                                     <span className="error-message">
@@ -1008,17 +1005,14 @@ const ResultHotel = (props) => {
                                     </label>
                                     <div className="container-register-birth">
                                         <DatePicker 
+                                            onChange={(date) => {
+                                                console.log(date);
+                                                }
+                                            }
                                             locale={locale}
                                             name="date"
                                             className="input-register-confirm-date"
                                             placeholder="DD/MM/YYYY"
-                                            {...register("date", {
-                                                required:{
-                                                    value: true,
-                                                    message: 'Campo Requerido'
-                                                }, 
-                            
-                                            })}
                                         />
                                     </div>
                                         <span className="error-message">
