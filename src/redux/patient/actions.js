@@ -71,7 +71,6 @@ export const getLocation = () => async dispatch => {
 
 const registerLocationAsync = async (data) => {
     let resultRegister = await axios.post('https://sleepy-turing.50-21-189-39.plesk.page/api/v1/locations/upsert-location',{
-        id: data.state.value,
         name: data.name,
         cityId: data.municipio.value,
         company: data.company,
