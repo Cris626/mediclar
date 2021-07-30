@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import logoMediclar from '../../../img/logo.jpg'
 import backgroundLogin from '../../../img/background-login.jpg'
 import successfull from '../../../img/successfull.jpg'
 
 import '../../../styles/addSite.css';
+import { connect } from 'react-redux';
 
 const SuccessRegister = props => {
+    const [data, setData] = useState();
+
+    useEffect(()=>{
+        const {patient} = props;
+        setData(patient);
+    }, [])
+
     return (
         <div className="container-primary-add">
 
@@ -39,35 +47,35 @@ const SuccessRegister = props => {
                     <div className="container-login-successful-primary-register">
                         <div className="container-pre-data">
                             <p><span className="pre-data">Nombre:</span></p>
-                            <p>Flavio Torres González</p>
+                            <p>{`${props.patient.name} ${props.patient.surname} ${props.patient.secondSurname}`}</p>
                         </div>
                     </div>
 
                     <div className="container-login-successful-primary-register">
                         <div className="container-pre-data">
                             <p><span className="pre-data">Fecha de Nacimiento:</span></p>
-                            <p>19/DIC/ 1984</p>
+                            <p>{props.patient.birth}</p>
                         </div>
                     </div>
 
                     <div className="container-login-successful-primary-register">
                         <div className="container-pre-data">
                             <p><span className="pre-data">Género:</span></p>
-                            <p>Masculino</p>
+                            <p>{props.patient.gender}</p>
                         </div>
                     </div>
 
                     <div className="container-login-successful-primary-register">
                         <div className="container-pre-data">
                             <p><span className="pre-data">Correo:</span></p>
-                            <p>flavio.tg@mediclarlab.com</p>
+                            <p>{props.patient.email}</p>
                         </div>
                     </div>
 
                     <div className="container-login-successful-primary-register">
                         <div className="container-pre-data">
                             <p><span className="pre-data">Teléfono:</span></p>
-                            <p>+52 33 1551 1563</p>
+                            <p>{`+${props.patient.codeArea} ${props.patient.phone}`}</p>
                         </div>
                     </div>
 
@@ -93,4 +101,14 @@ const SuccessRegister = props => {
     )
 }
 
-export default SuccessRegister;
+const mapStateToProps = ({ patient }) => {
+    return { patient };
+}
+
+const mapDispatchToProps = dispatch => ({
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(SuccessRegister);

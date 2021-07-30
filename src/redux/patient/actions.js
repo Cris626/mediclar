@@ -41,11 +41,11 @@ const registerPatientAsync = async (value) => {
 }
 
 export const registerPatient = value => async dispatch => {
+    const {birth} = value;
     const register = await registerPatientAsync(value)
-    console.log(register)
     return dispatch({
         type: REGISTER_PATIENT,
-        payload: { register }
+        payload: { register, ...value.data, birth }
     })
 }
 
