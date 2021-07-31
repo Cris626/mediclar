@@ -19,6 +19,7 @@ module.exports = {
 
     "form.num-register": "No. De Registro",
     "form.title": "DOCUMENTO DE INTERPRETACIÓN DE RESULTADO",
+    "form.title.successfully": "REQUEST SUBMITTED SUCCESSFULLY",
     "form.name": "Name(s)",
     "form.first-name": "First Name",
     "form.last-name": "Last Name",
