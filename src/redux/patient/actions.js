@@ -12,7 +12,7 @@ const authorizationToken = localStorage.getItem("Authorization");
 /* REGISTER_PATIENT */
 
 const registerPatientAsync = async (value) => {
-    const {data, birth, date} = value;
+    const {data, birth, date, motive, test, control} = value;
     let resultPatient = await axios.post('https://sleepy-turing.50-21-189-39.plesk.page/api/v1/locations/upsert-location',{
         locationId: 1111,
         name: data.name,
@@ -25,11 +25,11 @@ const registerPatientAsync = async (value) => {
         email: data.email,
         phoneLada: data.codeArea,
         phone: data.phone,
-        testReason: "trip",
-        testControl: "school",
-        inAntigen: 0,
-        isPCR: 1,
-        isAntibody: 1,
+        testReason: motive,
+        testControl: control,
+        isAntigen: test.isAntigen,
+        isPCR: test.isPCR,
+        isAntibody: test.isAntibody,
         isHotel: 0,
         isProcessed: 0,
         isEmailProcessed: 0,

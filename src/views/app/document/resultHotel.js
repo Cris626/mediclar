@@ -31,6 +31,18 @@ const ResultHotel = (props) => {
         props.registerPatient(data);
     }
 
+    const handleClicMotive = (e) => {
+        console.log(e.target.value)
+      }
+
+    const handleClicTest = (e) => {
+        console.log(e.target.value)
+    }
+
+    const handleClicControl = (e) => {
+        console.log(e.target.value)
+    }
+
     return(
         <div className="container-register-primary">
 
@@ -713,6 +725,7 @@ const ResultHotel = (props) => {
                                                     type= "radio"
                                                     value="trip"
                                                     name="motive"
+                                                    onClick={ handleClicMotive }
                                                 />
                                                 <label className="label-control"><IntlMessages id="form.test-reason.option.first"/></label>
                                             </div>
@@ -722,6 +735,7 @@ const ResultHotel = (props) => {
                                                     type= "radio"
                                                     value="symptoms"
                                                     name="motive"
+                                                    onClick={ handleClicMotive }
                                                 />
                                                 <label className="label-control"><IntlMessages id="form.test-reason.option.second"/></label>
                                             </div>
@@ -742,6 +756,7 @@ const ResultHotel = (props) => {
                                                     type= "radio"
                                                     value="Business"
                                                     name="control"
+                                                    onClick={ handleClicControl }
                                                 />
                                                 <label className="label-control"><IntlMessages id="form.control.option.first"/></label>
                                             </div>
@@ -751,6 +766,7 @@ const ResultHotel = (props) => {
                                                     type= "radio"
                                                     value="School"
                                                     name="control"
+                                                    onClick={ handleClicControl }
                                                 />
                                                 <label className="label-control"><IntlMessages id="form.control.option.second"/></label>
                                             </div>
@@ -776,6 +792,7 @@ const ResultHotel = (props) => {
                                                 type= "radio"
                                                 value="0"
                                                 name="test"
+                                                onClick={ handleClicTest }
                                             />
                                             <label className="label-control"><IntlMessages id="form.test-type.option.first"/></label>
                                         </div>
@@ -785,6 +802,7 @@ const ResultHotel = (props) => {
                                                 type= "radio"
                                                 value="1"
                                                 name="test"
+                                                onClick={ handleClicTest }
                                             />
                                             <label className="label-control"><IntlMessages id="form.test-type.option.second"/></label>
                                         </div>
@@ -794,6 +812,7 @@ const ResultHotel = (props) => {
                                                 type= "radio"
                                                 value="1"
                                                 name="test"
+                                                onClick={ handleClicTest }
                                             />
                                             <label className="label-control"><IntlMessages id="form.test-type.option.third"/></label>
                                         </div>

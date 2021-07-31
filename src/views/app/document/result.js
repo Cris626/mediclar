@@ -27,6 +27,10 @@ const Result = (props) => {
     const [birth, setBirth] = useState();
     const [date, setDate] = useState();
 
+    const [motive, setMotive] = useState()
+    const [test, setTest] = useState()
+    const [control, setControl] = useState()
+
     const{register, handleSubmit, formState: { errors }} = useForm()
 
     const handleDate = data => {
@@ -38,7 +42,7 @@ const Result = (props) => {
     const onSubmit = (data, e) => {
         e.target.reset()
         console.log(data)
-        props.registerPatient({data, birth, date});
+        props.registerPatient({data, birth, date, motive, test, control});
     }
 
     useEffect(()=>{
@@ -52,6 +56,45 @@ const Result = (props) => {
             }
         }
     },[props])
+
+
+    const handleClicMotive = (e) => {
+        setMotive(e.target.value)
+      }
+
+    const handleClicTest = (e) => {
+        
+        switch (e.target.value) {
+            case "isPCR":
+                setTest({
+                    isAntigen: 0,
+                    inPCR: 1,
+                    isAntibody: 0
+                })
+                break;
+            case "isAntigen":
+                setTest({
+                    isAntigen: 1,
+                    inPCR: 0,
+                    isAntibody: 0
+                })
+                break;
+            case "isAntibody":
+                setTest({
+                    isAntigen: 0,
+                    inPCR: 0,
+                    isAntibody: 1
+                })
+                break;
+        
+            default:
+                break;
+        }
+    }
+
+    const handleClicControl = (e) => {
+        setControl(e.target.value)
+    }
 
     return(
         <div className="container-register-primary">
@@ -649,6 +692,7 @@ const Result = (props) => {
                                                 type= "radio"
                                                 value="trip"
                                                 name="motive"
+                                                onClick={ handleClicMotive }
                                             />
                                             <label className="label-control"><IntlMessages id="form.test-reason.option.first"/></label>
                                         </div>
@@ -658,6 +702,7 @@ const Result = (props) => {
                                                 type= "radio"
                                                 value="symptoms"
                                                 name="motive"
+                                                onClick={ handleClicMotive }
                                             />
                                             <label className="label-control"><IntlMessages id="form.test-reason.option.second"/></label>
                                         </div>
@@ -678,6 +723,7 @@ const Result = (props) => {
                                                 type= "radio"
                                                 value="Business"
                                                 name="control"
+                                                onClick={ handleClicControl }
                                             />
                                             <label className="label-control"><IntlMessages id="form.control.option.first"/></label>
                                         </div>
@@ -687,6 +733,7 @@ const Result = (props) => {
                                                 type= "radio"
                                                 value="School"
                                                 name="control"
+                                                onClick={ handleClicControl }
                                             />
                                             <label className="label-control"><IntlMessages id="form.control.option.second"/></label>
                                         </div>
@@ -709,8 +756,9 @@ const Result = (props) => {
                                     <div>
                                         <input
                                             type= "radio"
-                                            value="0"
+                                            value="isAntigen"
                                             name="test"
+                                            onClick={ handleClicTest }
                                         />
                                         <label className="label-control"><IntlMessages id="form.test-type.option.first"/></label>
                                     </div>
@@ -718,8 +766,9 @@ const Result = (props) => {
                                     <div>
                                         <input
                                             type= "radio"
-                                            value="1"
+                                            value="isPCR"
                                             name="test"
+                                            onClick={ handleClicTest }
                                         />
                                         <label className="label-control"><IntlMessages id="form.test-type.option.second"/></label>
                                     </div>
@@ -727,8 +776,9 @@ const Result = (props) => {
                                     <div>
                                         <input
                                             type= "radio"
-                                            value="1"
+                                            value="isAntibody"
                                             name="test"
+                                            onClick={ handleClicTest }
                                         />
                                         <label className="label-control"><IntlMessages id="form.test-type.option.third"/></label>
                                     </div>
