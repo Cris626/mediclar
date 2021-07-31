@@ -115,12 +115,13 @@
     background-color: #707070;
     color: white;
     width: 100%;
-    height: 35px;
+    height: 65px;
     border-bottom: solid 2px #cccbcb;
+    padding-top: 15px;
     padding-bottom: 10px;
     display: flex;
     justify-content: center;
-    align-items: center;
+
 }
 
 .container-pre-data{

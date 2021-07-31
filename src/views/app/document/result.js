@@ -27,6 +27,10 @@ const Result = (props) => {
     const [birth, setBirth] = useState();
     const [date, setDate] = useState();
 
+    const [motive, setMotive] = useState()
+    const [test, setTest] = useState()
+    const [control, setControl] = useState()
+
     const{register, handleSubmit, formState: { errors }} = useForm()
 
     const handleDate = data => {
@@ -38,7 +42,7 @@ const Result = (props) => {
     const onSubmit = (data, e) => {
         e.target.reset()
         console.log(data)
-        props.registerPatient({data, birth, date});
+        props.registerPatient({data, birth, date, motive, test, control});
     }
 
     useEffect(()=>{
@@ -55,15 +59,41 @@ const Result = (props) => {
 
 
     const handleClicMotive = (e) => {
-        console.log(e.target.value)
+        setMotive(e.target.value)
       }
 
     const handleClicTest = (e) => {
-        console.log(e.target.value)
+        
+        switch (e.target.value) {
+            case "isPCR":
+                setTest({
+                    isAntigen: 0,
+                    inPCR: 1,
+                    isAntibody: 0
+                })
+                break;
+            case "isAntigen":
+                setTest({
+                    isAntigen: 1,
+                    inPCR: 0,
+                    isAntibody: 0
+                })
+                break;
+            case "isAntibody":
+                setTest({
+                    isAntigen: 0,
+                    inPCR: 0,
+                    isAntibody: 1
+                })
+                break;
+        
+            default:
+                break;
+        }
     }
 
     const handleClicControl = (e) => {
-        console.log(e.target.value)
+        setControl(e.target.value)
     }
 
     return(
@@ -726,7 +756,7 @@ const Result = (props) => {
                                     <div>
                                         <input
                                             type= "radio"
-                                            value="0"
+                                            value="isAntigen"
                                             name="test"
                                             onClick={ handleClicTest }
                                         />
@@ -736,7 +766,7 @@ const Result = (props) => {
                                     <div>
                                         <input
                                             type= "radio"
-                                            value="1"
+                                            value="isPCR"
                                             name="test"
                                             onClick={ handleClicTest }
                                         />
@@ -746,7 +776,7 @@ const Result = (props) => {
                                     <div>
                                         <input
                                             type= "radio"
-                                            value="1"
+                                            value="isAntibody"
                                             name="test"
                                             onClick={ handleClicTest }
                                         />
