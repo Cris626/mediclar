@@ -6,6 +6,7 @@ import successfull from '../../../img/successfull.jpg'
 
 import '../../../styles/addSite.css';
 import { connect } from 'react-redux';
+import IntlMessages from '../../../helpers/IntlMessages';
 
 const SuccessRegister = props => {
 
@@ -36,39 +37,39 @@ const SuccessRegister = props => {
                     </div>
 
                     <div className="container-title-successful">
-                        <p className="session-title">SOLICITUD ENVIADA EXITOSAMENTE</p>
+                        <p className="session-title"><IntlMessages id="form.title.successfully"/></p>
                     </div>
                     <div className="container-login-successful-primary-register">
                         <div className="container-pre-data">
-                            <p><span className="pre-data">Nombre:</span></p>
+                            <p><span className="pre-data"><IntlMessages id="form.name"/>:</span></p>
                             <p>{`${props.patient.name} ${props.patient.surname} ${props.patient.secondSurname}`}</p>
                         </div>
                     </div>
 
                     <div className="container-login-successful-primary-register">
                         <div className="container-pre-data">
-                            <p><span className="pre-data">Fecha de Nacimiento:</span></p>
+                            <p><span className="pre-data"><IntlMessages id="form.date-of-birth"/>:</span></p>
                             <p>{props.patient.birth}</p>
                         </div>
                     </div>
 
                     <div className="container-login-successful-primary-register">
                         <div className="container-pre-data">
-                            <p><span className="pre-data">Género:</span></p>
+                            <p><span className="pre-data"><IntlMessages id="form.gender"/>:</span></p>
                             <p>{props.patient.gender}</p>
                         </div>
                     </div>
 
                     <div className="container-login-successful-primary-register">
                         <div className="container-pre-data">
-                            <p><span className="pre-data">Correo:</span></p>
+                            <p><span className="pre-data"><IntlMessages id="form.email"/>:</span></p>
                             <p>{props.patient.email}</p>
                         </div>
                     </div>
 
                     <div className="container-login-successful-primary-register">
                         <div className="container-pre-data">
-                            <p><span className="pre-data">Teléfono:</span></p>
+                            <p><span className="pre-data"><IntlMessages id="form.phone"/>:</span></p>
                             <p>{`+${props.patient.codeArea} ${props.patient.phone}`}</p>
                         </div>
                     </div>

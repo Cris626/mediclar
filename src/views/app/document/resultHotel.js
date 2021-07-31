@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import IntlMessages from '../../../helpers/IntlMessages';
 
 import { DatePicker } from 'antd';
@@ -24,24 +24,71 @@ import 'antd/dist/antd.css';
 
 const ResultHotel = (props) => {
 
+    const [motive, setMotive] = useState()
+    const [test, setTest] = useState()
+    const [control, setControl] = useState()
+
     const{register, handleSubmit, formState: { errors }} = useForm()
 
     const onSubmit = (data, e) => {
         e.target.reset()
-        props.registerPatient(data);
+        props.registerPatient({data, motive, test, control});
     }
 
+    // const handleClicMotive = (e) => {
+    //     console.log(e.target.value)
+    //   }
+
+    // const handleClicTest = (e) => {
+    //     console.log(e.target.value)
+    // }
+
+    // const handleClicControl = (e) => {
+    //     console.log(e.target.value)
+    // }
+
+
+
     const handleClicMotive = (e) => {
-        console.log(e.target.value)
+        setMotive(e.target.value)
       }
 
     const handleClicTest = (e) => {
-        console.log(e.target.value)
+        
+        switch (e.target.value) {
+            case "isPCR":
+                setTest({
+                    isAntigen: 0,
+                    inPCR: 1,
+                    isAntibody: 0
+                })
+                break;
+            case "isAntigen":
+                setTest({
+                    isAntigen: 1,
+                    inPCR: 0,
+                    isAntibody: 0
+                })
+                break;
+            case "isAntibody":
+                setTest({
+                    isAntigen: 0,
+                    inPCR: 0,
+                    isAntibody: 1
+                })
+                break;
+        
+            default:
+                break;
+        }
     }
 
     const handleClicControl = (e) => {
-        console.log(e.target.value)
+        setControl(e.target.value)
     }
+
+
+    
 
     return(
         <div className="container-register-primary">
