@@ -4,10 +4,11 @@ import {
     GET_LOCATION,
     REGISTER_LOCATION,
     CLEAN_DATA_PATIENT,
-    DELETE_LOCATION
+    DELETE_LOCATION,
+    GET_PATIENT
 } from '../actions';
 
-const authorizationToken = localStorage.getItem("Authorization");
+const authorizationToken = { 'Authorization': localStorage.getItem("Authorization") }
 
 /* REGISTER_PATIENT */
 
@@ -36,7 +37,7 @@ const registerPatientAsync = async (value) => {
         isSMSProcessed: 0,
         isWhatsappProcessed: 0,
         roonNumber: "123",
-    },{headers: {'Authorization': authorizationToken}}).then(resul=>resul.data).catch(err=>err);
+    },{headers: authorizationToken}).then(resul=>resul.data).catch(err=>err);
     return resultPatient;
 }
 
@@ -53,7 +54,7 @@ export const registerPatient = value => async dispatch => {
 
 const getLocationAsync = async () => {
     let resulLocation = await axios.post('https://sleepy-turing.50-21-189-39.plesk.page/api/v1/locations/get-locations', 
-    {headers: {authorizationToken}}).then(result => result.data).catch(err => err);
+    {headers: authorizationToken}).then(result => result.data).catch(err => err);
     return resulLocation;
 }
 
@@ -61,10 +62,28 @@ export const getLocation = () => async dispatch => {
     let dataLocation = await getLocationAsync();
     const { data } = dataLocation;
     const dataResul = Object.values(data);
-    return {
+    return dispatch({
         type: GET_LOCATION,
         payload: dataResul
-    }
+    })
+}
+
+/* GET_PATIENT */
+
+const getPatientAsync = async () => {
+    let result = await axios.post('https://sleepy-turing.50-21-189-39.plesk.page/api/v1/forms/get-forms',{},
+    {headers: authorizationToken}).then(result => result.data).catch(err => err);
+    return result;
+}
+
+export const getPatient = () => async dispatch => {
+    let dataPatient = await getPatientAsync();
+    const { data } = dataPatient;
+    const dataResul = Object.values(data);
+    return dispatch({
+        type: GET_PATIENT,
+        payload: data
+    })
 }
 
 /* REGISTER_LOCATION */
@@ -75,7 +94,7 @@ const registerLocationAsync = async (data) => {
         cityId: data.municipio.value,
         company: data.company,
         address: data.address,
-    },{headers: {'Authorization': authorizationToken}}).then(result => result.data).catch(err=>err);
+    },{ headers: authorizationToken}).then(result => result.data).catch(err=>err);
     return resultRegister;
 }
 
@@ -93,7 +112,7 @@ export const registerLocation = (value) => async dispatch => {
 const deleteLocationAsync = async (data) => {
     let result = await axios.post('https://sleepy-turing.50-21-189-39.plesk.page/api/v1/locations/delete-location-by-id', {
         id: data
-    }, {headers: {'Authorization': authorizationToken}}).then(result=>result.data).catch(err=>err)
+    }, {headers: authorizationToken}).then(result=>result.data).catch(err=>err)
     return result;
 }
 

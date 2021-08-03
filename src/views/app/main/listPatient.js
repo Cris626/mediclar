@@ -187,12 +187,12 @@ const ListPatient = (props) => {
                         <tbody>
                             {locations!==undefined?locations.map(x=>{
                                 return <tr key={x.id}>
-                                    <td className="tdStatus" key={x.name}>{x.name}</td>
-                                    <td className="tdStatus" key={x.city.estado[0].estado+0}>{x.city.estado[0].estado}</td>
-                                    <td className="tdStatus" key={x.city.municipio+1}>{x.city.municipio}</td>
-                                    <td className="tdStatus" key={x.company}>{x.company}</td>
-                                    <td className="tdStatus" key={x.address}>{x.address}</td>
-                                    <td className="tdStatus" key={x.id+1}>
+                                    <td className="tdStatus" key={0}>{x.name}</td>
+                                    <td className="tdStatus" key={1}>{x.city.estado[0].estado}</td>
+                                    <td className="tdStatus" key={2}>{x.city.municipio}</td>
+                                    <td className="tdStatus" key={3}>{x.company}</td>
+                                    <td className="tdStatus" key={4}>{x.address}</td>
+                                    <td className="tdStatus" key={5}>
                                             <button className="button-list">
                                                 <FontAwesomeIcon className="icon-button-edit" icon={ faEdit }/>
                                             </button>

@@ -16,7 +16,7 @@ import backgroundForm from '../../../img/background-form.jpg'
 import '../../../styles/styleStatus.css';
 
 import { connect } from 'react-redux';
-import { getStates, cleanData } from '../../../redux/actions';
+import { getStates, cleanData, getPatient } from '../../../redux/actions';
 import Select from 'react-select';
 
 const Form = (props) => {
@@ -25,6 +25,7 @@ const Form = (props) => {
     const [state, setState] = useState();
     const [city, setCity] = useState();
     const [municipio, setMunicipio] = useState();
+    const [forms, setForms] = useState([]);
 
     const handleGetStates = async () => {
         let resulStates = [];
@@ -52,10 +53,22 @@ const Form = (props) => {
         setCity(resulData);
     }
 
+    const handleGetPatient = async () => {
+        // let promise
+        const { patient } = props;
+        setForms(patient)
+    }
+
     useEffect(()=> {
         handleGetStates();
         props.cleanData();
+        props.getPatient();
     }, [])
+
+    useEffect(()=>{
+        const { patient } = props;
+        setForms(Object.values(patient))
+    }, [props])
 
     return(
         <div className="container-status-primary">
@@ -343,50 +356,51 @@ const Form = (props) => {
                             </tr>
                         </thead>
                         <tbody>
-
-                            <tr>
-                                <td className="tdStatus">00001</td>
-                                <td className="tdStatus">Guadalajara</td>
-                                <td className="tdStatus">15/JUL/2021</td>
-                                <td className="tdStatus">11:00</td>
-                                <td className="tdStatus">Flavio</td>
-                                <td className="tdStatus">Torres</td>
-                                <td className="tdStatus">González</td>
-                                <td className="tdStatus">19/DIC/1984 </td>
-                                <td className="tdStatus">Masculino</td>
-                                <td className="tdStatus">GP938903</td>
-                                <td className="tdStatus">flavio.tg@mediclarlab.com</td>
-                                <td className="tdStatus">
-                                    <input 
-                                        type="radio"
-                                        name="send"
-                                        value="imail"
-                                    />
-                                </td>
-                                <td className="tdStatus">+52 33 1551 1563</td>
-                                <td className="tdStatus">
-                                    <input 
-                                        type="radio"
-                                        name="send"
-                                        value="phone"
-                                    />
-                                </td>
-                                <td className="tdStatus">+52 33 1551 1563</td>
-                                <td className="tdStatus">
-                                    <input 
-                                        type="radio"
-                                        name="send"
-                                        value="SMS"
-                                    />
-                                </td>
-                                <td className="tdStatus">
-                                    <Link to={`${props.match.path}/form-resul-pdf`}>
-                                        <button className="button-print">
-                                            <FontAwesomeIcon className="icon-button-print" icon={ faPrint }/>
-                                        </button>
-                                    </Link>
-                                </td>
-                            </tr>
+                            {forms!==undefined&&forms.length>0?forms.map(x=>{
+                                return <tr key={x.id}>
+                                    <td className="tdStatus">{x.id}</td>
+                                    <td className="tdStatus">{x.locationId}</td>
+                                    <td className="tdStatus">{x.createdAt}</td>
+                                    <td className="tdStatus">{x.createdAt}</td>
+                                    <td className="tdStatus">{x.name}</td>
+                                    <td className="tdStatus">{x.firtLastName}</td>
+                                    <td className="tdStatus">{x.secondLastName?x.secondLastName:'-'}</td>
+                                    <td className="tdStatus">{x.dob} </td>
+                                    <td className="tdStatus">{x.gender}</td>
+                                    <td className="tdStatus">{x.passport}</td>
+                                    <td className="tdStatus">{x.email}</td>
+                                    <td className="tdStatus">
+                                        <input 
+                                            type="radio"
+                                            name="send"
+                                            value="imail"
+                                        />
+                                    </td>
+                                    <td className="tdStatus">{`${x.phoneLada} ${x.phone}`}</td>
+                                    <td className="tdStatus">
+                                        <input 
+                                            type="radio"
+                                            name="send"
+                                            value="phone"
+                                        />
+                                    </td>
+                                    <td className="tdStatus">{`${x.phoneLada} ${x.phone}`}</td>
+                                    <td className="tdStatus">
+                                        <input 
+                                            type="radio"
+                                            name="send"
+                                            value="SMS"
+                                        />
+                                    </td>
+                                    <td className="tdStatus">
+                                        <Link to={`${props.match.path}/form-resul-pdf`}>
+                                            <button className="button-print">
+                                                <FontAwesomeIcon className="icon-button-print" icon={ faPrint }/>
+                                            </button>
+                                        </Link>
+                                    </td>
+                                </tr>
+                            }):<tr></tr>}
                         </tbody>
                        
 
@@ -405,13 +419,14 @@ const Form = (props) => {
     )
 }
 
-const mapStateToProps = ({ settings }) => {
-    return {settings};
+const mapStateToProps = ({ settings, patient }) => {
+    return {settings, patient};
 }
 
 const mapDispatchToProps = dispatch => ({
     getStates: () => dispatch(getStates()),
-    cleanData: () => dispatch(cleanData())
+    cleanData: () => dispatch(cleanData()),
+    getPatient: () => dispatch(getPatient())
 })
 
 export default connect(
