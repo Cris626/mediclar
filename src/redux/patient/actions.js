@@ -79,10 +79,9 @@ const getPatientAsync = async () => {
 export const getPatient = () => async dispatch => {
     let dataPatient = await getPatientAsync();
     const { data } = dataPatient;
-    const dataResul = Object.values(data);
     return dispatch({
         type: GET_PATIENT,
-        payload: data
+        payload: {listPatient: data}
     })
 }
 
