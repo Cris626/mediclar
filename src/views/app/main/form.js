@@ -363,7 +363,7 @@ const Form = (props) => {
                                     <td className="tdStatus">{x.createdAt}</td>
                                     <td className="tdStatus">{x.createdAt}</td>
                                     <td className="tdStatus">{x.name}</td>
-                                    <td className="tdStatus">{x.firtLastName}</td>
+                                    <td className="tdStatus">{x.firstLastName}</td>
                                     <td className="tdStatus">{x.secondLastName?x.secondLastName:'-'}</td>
                                     <td className="tdStatus">{x.dob} </td>
                                     <td className="tdStatus">{x.gender}</td>
