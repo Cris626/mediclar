@@ -7,7 +7,9 @@ import {
     GET_PATIENT
 } from '../actions';
 
-const initialState = {}
+const initialState = {
+    listPatient: []
+}
 
 let reducer = ( state = initialState, action) => {
     switch (action.type) {

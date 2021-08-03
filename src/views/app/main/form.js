@@ -53,12 +53,6 @@ const Form = (props) => {
         setCity(resulData);
     }
 
-    const handleGetPatient = async () => {
-        // let promise
-        const { patient } = props;
-        setForms(patient)
-    }
-
     useEffect(()=> {
         handleGetStates();
         props.cleanData();
@@ -67,7 +61,7 @@ const Form = (props) => {
 
     useEffect(()=>{
         const { patient } = props;
-        setForms(Object.values(patient))
+        setForms(Object.values(patient.listPatient))
     }, [props])
 
     return(
