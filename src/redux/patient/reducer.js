@@ -4,11 +4,13 @@ import {
     REGISTER_LOCATION,
     CLEAN_DATA_PATIENT,
     DELETE_LOCATION,
-    GET_PATIENT
+    GET_PATIENT,
+    EDIT_LOCATION
 } from '../actions';
 
 const initialState = {
-    listPatient: []
+    listPatient: [],
+    editLocation: false
 }
 
 let reducer = ( state = initialState, action) => {
@@ -22,6 +24,8 @@ let reducer = ( state = initialState, action) => {
         case DELETE_LOCATION:
             return { ...state, ...action.payload };
         case GET_PATIENT:
+            return { ...state, ...action.payload };
+        case EDIT_LOCATION:
             return { ...state, ...action.payload };
         case CLEAN_DATA_PATIENT:
             return { state: initialState };

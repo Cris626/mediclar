@@ -5,7 +5,8 @@ import {
     REGISTER_LOCATION,
     CLEAN_DATA_PATIENT,
     DELETE_LOCATION,
-    GET_PATIENT
+    GET_PATIENT,
+    EDIT_LOCATION
 } from '../actions';
 
 const authorizationToken = { 'Authorization': localStorage.getItem("Authorization") }
@@ -82,6 +83,17 @@ export const getPatient = () => async dispatch => {
     return dispatch({
         type: GET_PATIENT,
         payload: {listPatient: data}
+    })
+}
+
+/* EDIT_LOCATION */
+
+export const editLocation = (value) => async dispatch => {
+    const { data, history } = value;
+    history.push('/mediclar/app/places/register')
+    return dispatch({
+        type: EDIT_LOCATION,
+        payload: {editLocation: data}
     })
 }
 

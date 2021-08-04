@@ -16,6 +16,7 @@ const CreatePlaces = props => {
     const [state, setState] = useState();
     const [city, setCity] = useState();
     const [municipio, setMunicipio] = useState();
+    const [edit, setEdit] = useState(false);
     
     const{register, handleSubmit, formState: { errors }} = useForm()
 
@@ -49,6 +50,11 @@ const CreatePlaces = props => {
         })
         setCity(resulData);
     }
+
+    useEffect(()=>{
+        const {patient} = props;
+        setEdit(patient.editLocation);
+    })
 
     useEffect(()=> {
         handleGetStates();
@@ -85,7 +91,7 @@ const CreatePlaces = props => {
 
                     <form onSubmit={ handleSubmit( onSubmit ) }>
                     <p className="session-title">AGREGAR LUGARES DE ORIGEN</p>
-
+                    <button onClick={()=>console.log(props.patient.editLocation)}>ClickDelete</button>
                         <div className="container-name">
 
                             <label
@@ -101,6 +107,7 @@ const CreatePlaces = props => {
                                 autoComplete="off"
                                 className="input-login"
                                 placeholder="Agregar..."
+                                value={edit.name?edit.name:""}
                                 {...register("name", {
                                     required:{
                                         value: true,
@@ -125,7 +132,7 @@ const CreatePlaces = props => {
                                     placeholder="Seleccionar"
                                     name="Estado"
                                     options={selectState}
-                                    value={state}
+                                    value={edit.city? {label: edit.city.estado.estado, value: edit.city.estado.id, key: edit.city.estado.id}:state}
                                     onChange={value=>selectCity(value)} /** */
                                 />
                             </div>
@@ -143,7 +150,8 @@ const CreatePlaces = props => {
                                     placeholder="Seleccionar"
                                     name="Ciudad"
                                     options={city}
-                                    value={municipio}
+                                    // value={municipio}
+                                    value={edit.city? {label: edit.city.municipio, value: edit.city.id, key: edit.city.id}:municipio}
                                     onChange={value=>setMunicipio(value)}
                                 />
                             </div>
@@ -170,6 +178,7 @@ const CreatePlaces = props => {
                                     autoComplete="off"
                                     className="input-login"
                                     placeholder="Agregar..."
+                                    value={edit.company?edit.company:""}
                                     {...register("company", {
                                         required:{
                                             value: true,
@@ -196,6 +205,7 @@ const CreatePlaces = props => {
                                     autoComplete="off"
                                     className="input-login"
                                     placeholder="Agregar..."
+                                    value={edit.address?edit.address:""}
                                     {...register("address", {
                                         required:{
                                             value: true,

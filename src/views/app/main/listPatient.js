@@ -15,7 +15,7 @@ import backgroundForm from '../../../img/background-form.jpg'
 import '../../../styles/styleListPatients.css';
 
 import { connect } from 'react-redux';
-import { getLocation, getStates, deleteLocation } from '../../../redux/actions';
+import { getLocation, getStates, deleteLocation, editLocation } from '../../../redux/actions';
 import Select from 'react-select';
 
 const ListPatient = (props) => {
@@ -60,6 +60,11 @@ const ListPatient = (props) => {
 
     const handleDeleteLocation = id => {
         props.deleteLocation(id);
+    }
+
+    const handleEditLocation = data => {
+        const {history} = props;
+        props.editLocation({data, history})
     }
 
     useEffect(()=>{
@@ -194,7 +199,7 @@ const ListPatient = (props) => {
                                     <td className="tdStatus" key={4}>{x.address}</td>
                                     <td className="tdStatus" key={5}>
                                             <button className="button-list">
-                                                <FontAwesomeIcon className="icon-button-edit" icon={ faEdit }/>
+                                                <FontAwesomeIcon className="icon-button-edit" icon={ faEdit } onClick={()=>handleEditLocation(x)}/>
                                             </button>
                                             <button className="button-list" onClick={()=>handleDeleteLocation(x.id)}>
                                                 <FontAwesomeIcon className="icon-button-delet" icon={ faTrashAlt }/>
@@ -227,7 +232,8 @@ const mapStateToProps = ({patient, settings}) => {
 const mapDispatchToProps = dispatch => ({
     getLocation: () => dispatch(getLocation()),
     getStates: () => dispatch(getStates()),
-    deleteLocation: value => dispatch(deleteLocation(value))
+    deleteLocation: value => dispatch(deleteLocation(value)),
+    editLocation: value => dispatch(editLocation(value))
 })
 
 export default connect(
